@@ -273,7 +273,8 @@ h6 {
     .container-md,
     .container-sm,
     .container-xl {
-        max-width: 1200px;
+        max-width: none;
+        width: 95%;
     }
 }
 
