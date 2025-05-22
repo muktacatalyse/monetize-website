@@ -1,0 +1,31 @@
+.kmr-heading {
+  color: #220D4E;
+  font-size: 35px;
+  font-weight: 400;
+  margin-bottom: 0;
+  margin-top: -5px;
+  font-family: "Saira Stencil One";
+  line-height: 44px;
+  display: flex;
+  overflow: hidden;
+
+  .digit-container {
+      overflow: hidden;
+      height: 1em;
+      width: 0.7em;
+      position: relative;
+  }
+
+  .digit-strip {
+      display: flex;
+      flex-direction: column;
+      transition: transform 1s ease-out;
+  }
+
+  .digit-strip span {
+      height: 1em;
+      line-height: 1em;
+      display: block;
+      text-align: center;
+  }
+}

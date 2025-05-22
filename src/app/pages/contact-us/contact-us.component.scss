@@ -1,0 +1,104 @@
+.page-head {
+    .text-path {
+        .tp-svg {
+            fill: #8577F0;
+            stroke: #fff;
+        }
+
+        span {
+            background-color: #8577F0;
+        }
+    }
+}
+
+.contact-us {
+    padding: 60px 0 80px;
+    position: relative;
+
+    .contact-icon-plus {
+        position: absolute;
+        top: 60%;
+        left: 55px;
+        width: 50px;
+        opacity: 0.7;
+    }
+
+    .contact-icon-3angle {
+        position: absolute;
+        top: 30%;
+        left: 35%;
+        width: 60px;
+    }
+
+    .heading {
+        position: relative;
+        text-transform: uppercase;
+        color: #101010;
+
+        .tag {
+            position: absolute;
+            left: -20px;
+            top: -52px;
+            transform: rotate(-12deg);
+        }
+
+        .h-span {
+            color: #8577F0;
+        }
+    }
+
+    textarea.form-control {
+        height: 90px;
+    }
+
+    form {
+        position: relative;
+        z-index: 0;
+
+        &::after {
+            content: '';
+            background-image: url(../../../../public/assets/images/contact-gif.gif);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+            opacity: 0.1;
+        }
+    }
+
+    .btn {
+        border-radius: 10px;
+        background: #FFDB00;
+        display: flex;
+        padding: 18px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        align-self: stretch;
+        width: 100%;
+        color: #000;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: normal;
+        border: 0;
+    }
+}
+@media(max-width: 768px){
+    .contact-us{
+        padding: 90px 0 50px;
+        .heading{
+            .tag{
+                left: -8px;
+                top: -40px;
+            }
+            br{
+                display: none;
+            }
+        }
+    }
+}

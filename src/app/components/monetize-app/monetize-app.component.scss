@@ -1,0 +1,162 @@
+.monetize-app {
+    background: linear-gradient(90deg, #845EF9 0%, #8577F0 24%, #D811AD 100%);
+    padding: 60px 20px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .my-app-shape1,
+    .my-app-shape2 {
+        opacity: 0.2;
+        width: 300px;
+    }
+
+    .my-app-shape1 {
+        margin-left: -10.6rem;
+    }
+
+    .my-app-shape2 {
+        margin-right: -10.6rem;
+    }
+
+    .monetize-app-content {
+        border-radius: 35px;
+        background: rgba(255, 255, 255, 0.10);
+        box-shadow: 0px 24px 38px 0px rgba(22, 29, 36, 0.08);
+        backdrop-filter: blur(50px);
+        min-height: 300px;
+        padding: 30px 70px;
+        position: relative;
+        max-width: 670px;
+        z-index: 0;
+        overflow: hidden;
+
+        .om-meteors {
+            overflow: visible !important;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 20px;
+        }
+
+        &::before,
+        &::after {
+            content: '';
+            border-radius: 35px;
+            padding: 1.5px;
+            background: linear-gradient(130deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 20%);
+
+            mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+            -webkit-mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            background-clip: padding-box, border-box;
+            background-origin: padding-box, border-box;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        &::after {
+            background: linear-gradient(-45deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 20%);
+        }
+
+        h2 {
+            font-size: 45px;
+            color: #fff;
+            font-weight: bold;
+            margin-bottom: 0;
+            line-height: normal;
+        }
+
+        p {
+            color: #fff;
+            margin-bottom: 0;
+            line-height: 26px;
+            font-weight: 400;
+        }
+
+        a {
+            border-radius: 15px;
+            border: 1.5px solid #FFF;
+            background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.30) 0%, rgba(255, 255, 255, 0.30) 100%);
+            display: flex;
+            padding: 18px 22px;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            color: #FFF;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: normal;
+            text-decoration: none;
+        }
+    }
+}
+
+@media(max-width: 992px) {
+    .monetize-app {
+        justify-content: center;
+        position: relative;
+        z-index: 0;
+
+        .my-app-shape1,
+        .my-app-shape2 {
+            position: absolute;
+            width: 230px;
+            top: 50%;
+            transform: translateY(-50%);
+            margin: 0;
+            z-index: -1;
+        }
+
+        .my-app-shape1 {
+            left: -7.1rem;
+        }
+
+        .my-app-shape2 {
+            right: -7.1rem;
+        }
+    }
+}
+
+@media(max-width: 576px) {
+    .monetize-app {
+        padding: 40px 20px;
+
+        .monetize-app-content {
+            border-radius: 25px;
+            min-height: auto;
+            padding: 25px;
+            max-width: 100%;
+
+            .om-meteors {
+                gap: 15px;
+            }
+
+            &::before,
+            &::after {
+                border-radius: 25px;
+            }
+
+            h2 {
+                font-size: 30px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+        }
+    }
+}

@@ -1,0 +1,56 @@
+<section class="account">
+    <div class="container">
+        <div class="account-card">
+            <div class="account-card-left">
+                <img src="assets/images/account-bg2.jpg"
+                    class="account-left-img1" alt>
+                <img src="assets/images/account-bg3.jpg"
+                    class="account-left-img2" alt>
+            </div>
+            <div class="account-card-right">
+                <h2>Verify OTP</h2>
+                <form class="w-100" (ngSubmit)="onSubmit()">
+                    <div class="row g-2 mb-4">
+                        <div class="col-2"
+                            *ngFor="let field of otpFields; let i = index">
+                            <div class="form-group mb-0">
+                                <input
+                                    type="tel"
+                                    maxlength="1"
+                                    class="form-control text-center rounded-3"
+                                    [(ngModel)]="otp[i]"
+                                    name="otp{{i}}"
+                                    #otpInput
+                                    (input)="onInputChange($event, i)"
+                                    (keydown)="onKeyDown($event, i)" />
+                            </div>
+                        </div>
+                        <a routerLink="/auth/verify-otp"
+                            class="fog-password">Resend OTP</a>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-light">Verify
+                            OTP</button>
+                    </div>
+                    <div class="text-center">
+                        <a routerLink="/auth/login" class="btn back-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="12" viewBox="0 0 16 12" fill="none">
+                                <path
+                                    d="M8.49707 0.961914C6.95644 4.03265 5.6662 5.18369 2.45088 6.00041C5.4523 7.28619 6.90981 8.79404 8.49707 11.0389"
+                                    stroke="white" />
+                                <path d="M3.45645 6L15.5488 6" stroke="white" />
+                            </svg>
+                            Back to Login
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <img src="assets/images/icons/dancing-cat.gif" class="dancing-cat" alt>
+    </div>
+    <img src="assets/images/icons/icon-holo.png" class="account-icon-holo1" alt>
+    <img src="assets/images/icons/icon-holo2.png" class="account-icon-holo2"
+        alt>
+</section>
