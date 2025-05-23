@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { injectSpeedInsights } from '@vercel/speed-insights';
 
+injectSpeedInsights();
 @Component({
   selector: 'app-root',
   standalone: true,
