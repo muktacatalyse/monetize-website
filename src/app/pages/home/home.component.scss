@@ -7,9 +7,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 160px 0 30px;
+    padding: 140px 0 30px;
     position: relative;
     overflow: hidden;
+    min-height: 100vh;
 
     &::after {
         content: '';
