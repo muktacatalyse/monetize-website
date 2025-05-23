@@ -1504,7 +1504,7 @@
 @media(max-width: 992px) {
     .hero-section {
         padding: 140px 0 30px;
-
+        min-height: auto;
         .hero-left-content {
             gap: 15px;
             margin-top: -15px;
