@@ -19,7 +19,6 @@ import { NewPasswordComponent } from './auth/new-password/new-password.component
 import { VerifyOtpComponent } from './auth/verify-otp/verify-otp.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ComingSoonComponent } from './pages/coming-soon/coming-soon.component';
-import { DemoComponent } from './pages/demo/demo.component';
 import { CommonTemplateComponent } from './pages/common-template/common-template.component';
 
 export const routes: Routes = [
@@ -36,7 +35,6 @@ export const routes: Routes = [
             { path: 'media-kit', component: MediaKitComponent },
             { path: 'privacy-policy', component: PrivacyPolicyComponent },
             { path: 'terms-of-service', component: TermsOfServicesComponent },
-            { path: 'demo', component: DemoComponent },
             { path: 'landing', component: CommonTemplateComponent },
         ]
     },
