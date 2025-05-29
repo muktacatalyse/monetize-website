@@ -1,0 +1,301 @@
+@function px-rem($px, $base: 16) {
+    @return ($px / $base) * 1rem;
+}
+
+.supported-platforms {
+    padding: px-rem(50) 0;
+    background-image: url(../../../../../public/assets/images/supported-platform.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: top;
+    position: relative;
+    overflow: hidden;
+
+    .sp-container {
+        z-index: 1;
+        height: 80vh;
+        margin-top: px-rem(30);
+    }
+
+    .supported-platform-head {
+        position: relative;
+        padding-bottom: px-rem(30);
+
+        img {
+            position: absolute;
+            right: px-rem(-20);
+            top: px-rem(-20);
+        }
+    }
+
+    .splatform-card {
+        border-radius: px-rem(44); // 2.75rem * 16 = 44px
+        width: px-rem(320); // 20rem * 16 = 320px
+        height: px-rem(60); // 3.75rem * 16 = 60px
+        background-color: #FF8CDB;
+        transition: 0.3s linear;
+        overflow: hidden;
+        position: absolute;
+        z-index: 1;
+
+        .splatform-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: px-rem(5);
+            height: px-rem(60);
+            position: relative;
+            transition: 0.3s linear;
+
+            .splatform-card-header-icon {
+                background-color: var(--color-text2);
+                border: 0;
+                height: px-rem(50);
+                width: px-rem(50);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #fff;
+                font-size: px-rem(25);
+                position: absolute;
+                left: px-rem(5);
+                top: 50%;
+                transform: translateY(-50%);
+                transition: 0.5s linear;
+
+                .bi-x {
+                    display: none;
+                }
+            }
+
+            h3 {
+                color: var(--color-text2);
+                font-size: px-rem(32);
+                font-weight: 700;
+                margin-bottom: 0;
+                transition: 0.3s linear;
+            }
+        }
+
+        .splatform-card-body {
+            padding: px-rem(15);
+            position: relative;
+            height: calc(100% - px-rem(60)); // 3.75rem height converted to px-rem
+            opacity: 0;
+            transition: 0.3s ease-in-out;
+            display: flex;
+            align-items: flex-end;
+            padding-bottom: 0;
+            justify-content: center;
+
+            .sp-badge {
+                display: inline-flex;
+                transform: rotate(-12deg);
+                padding: px-rem(10) px-rem(15);
+                border-radius: px-rem(30);
+                background: #91CDFF;
+                box-shadow: px-rem(5) px-rem(5) 0 0 #000;
+                font-size: px-rem(14);
+                font-weight: bold;
+                color: var(--color-text2);
+            }
+
+            .sp-icon {
+                position: absolute;
+                right: px-rem(10);
+                top: px-rem(25);
+                width: px-rem(80);
+            }
+
+            .sp-badge {
+                position: absolute;
+                top: px-rem(20);
+                left: px-rem(15);
+            }
+
+            .sp-device-img {
+                margin-bottom: px-rem(-25);
+                width: px-rem(230);
+            }
+        }
+
+        &.sp-android {
+            top: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+
+            &:hover {
+                z-index: 2;
+            }
+        }
+
+        &.sp-ios {
+            background-color: #FDB693;
+            bottom: 30%;
+            left: 5%;
+
+            .splatform-card-body {
+                .sp-badge {
+                    background-color: #C6F15C;
+                }
+
+                .sp-device-img {
+                    width: px-rem(330);
+                }
+
+                .sp-icon {
+                    position: absolute;
+                    left: 31%;
+                    right: auto;
+                    top: 38%;
+                    width: px-rem(80);
+                }
+            }
+        }
+
+        &.sp-iframe {
+            background-color: #91CDFF;
+            bottom: 38%;
+            right: 5%;
+
+            .splatform-card-body {
+                .sp-badge {
+                    background-color: #FFFB91;
+                    transform: rotate(4.32deg);
+                    padding: px-rem(10) px-rem(18);
+                    top: px-rem(-10);
+
+                    &.badge-ios {
+                        background-color: #FDB693;
+                        top: px-rem(-5);
+                        left: px-rem(95);
+                        transform: rotate(4.32deg);
+                    }
+
+                    &.badge-android {
+                        background-color: #C6F15C;
+                        transform: rotate(4.32deg);
+                        top: px-rem(48);
+                        left: px-rem(30);
+                    }
+                }
+
+                .sp-device-img {
+                    width: px-rem(350);
+                    margin-bottom: 0;
+                }
+
+                .sp-icon {
+                    position: absolute;
+                    right: 0;
+                    top: 20%;
+                    width: px-rem(80);
+                }
+            }
+        }
+
+        &:hover {
+            border-radius: px-rem(32); // 2rem * 16 = 32px
+            width: px-rem(368); // 23rem * 16 = 368px
+            height: px-rem(400); // 25rem * 16 = 400px
+
+            .splatform-card-header {
+                .splatform-card-header-icon {
+                    left: calc(100% - px-rem(32));
+                    transform: translate(-50%, -50%);
+
+                    .bi-arrow-right {
+                        display: none;
+                    }
+
+                    .bi-x {
+                        display: block;
+                    }
+                }
+
+                h3 {
+                    opacity: 0;
+                }
+            }
+
+            .splatform-card-body {
+                opacity: 1;
+            }
+        }
+    }
+
+    .sp-icon-plus {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: px-rem(100);
+    }
+
+    .sp-icon-circle {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: px-rem(70);
+    }
+
+    .supported-platform-ribbon {
+        position: absolute;
+        bottom: px-rem(-50);
+        right: px-rem(-25);
+        width: px-rem(600);
+    }
+}
+
+@media (max-width: 576px) {
+    .supported-platforms {
+        padding-bottom: 0;
+
+        .supported-platform-head {
+            padding-inline: px-rem(10);
+            padding-bottom: px-rem(15);
+
+            img {
+                width: px-rem(155);
+                right: px-rem(-50);
+                top: px-rem(-80);
+            }
+        }
+
+        .sp-container {
+            height: 50vh;
+
+            .splatform-card {
+                width: 80%;
+
+                .splatform-card-header h3 {
+                    font-size: px-rem(25);
+                }
+
+                &.sp-android {
+                    top: 0;
+                    left: 45%;
+                    transform: translateX(-50%);
+                }
+
+                &.sp-ios {
+                    bottom: 63%;
+                    right: px-rem(5);
+                    left: auto;
+                }
+
+                &.sp-iframe {
+                    bottom: 41%;
+                    left: px-rem(5);
+                    right: auto;
+                }
+            }
+        }
+
+        .supported-platform-ribbon {
+            bottom: px-rem(-65);
+            right: px-rem(-25);
+            width: calc(100% + px-rem(60));
+        }
+    }
+}

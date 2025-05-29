@@ -1,9 +1,13 @@
 <nav class="navbar" [class.scrolled]="isScrolled">
     <div class="container-lg">
         <!-- Logo Section -->
-        <a class="navbar-brand" [routerLink]="'/'">
-            <img src="assets/images/logo.png" loading="lazy" alt="Logo" />
-        </a>
+        <div class="navbar-brand">
+            <a [routerLink]="'/'">
+                <img src="assets/images/logo.png" loading="lazy" alt="Logo" />
+            </a>
+            <om-cryptic-text [animationSpeed]=500 class="parent-company"
+                [text]="'A Catalyse Research Company'"></om-cryptic-text>
+        </div>
         <div class="off-toggle-wrapper">
             <!-- Menu Toggle Button -->
             <button class="offcanvas-toggle btn" type="button"
@@ -23,21 +27,24 @@
                     <li class="nav-item">
                         <a
                             class="nav-link"
-                            [routerLink]="'/coming-soon'" data-bs-dismiss="offcanvas">
+                            [routerLink]="'/coming-soon'"
+                            data-bs-dismiss="offcanvas">
                             <span data-text="Publishers">Publishers</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a
                             class="nav-link"
-                            [routerLink]="'/coming-soon'" data-bs-dismiss="offcanvas">
+                            [routerLink]="'/coming-soon'"
+                            data-bs-dismiss="offcanvas">
                             <span data-text="Advertise">Advertise</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a
                             class="nav-link"
-                            [routerLink]="'/coming-soon'" data-bs-dismiss="offcanvas">
+                            [routerLink]="'/coming-soon'"
+                            data-bs-dismiss="offcanvas">
                             <span data-text="Resources">Resources</span>
                         </a>
                     </li>

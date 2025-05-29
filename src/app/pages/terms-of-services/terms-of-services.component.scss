@@ -1,49 +1,55 @@
-p {
-    line-height: 28px;
+@function px-rem($px, $base: 16) {
+    @return ($px / $base) * 1rem;
 }
+
+p {
+    line-height: px-rem(28);
+}
+
 .privacy-policy {
-    padding: 80px 0;
+    padding: px-rem(80) 0;
 
     h4 {
-        font-size: 16px;
+        font-size: px-rem(16);
         font-weight: bold;
-        
+
         margin-bottom: 0;
         color: #220D4E;
     }
 
     hr {
         width: 100%;
-        height: 1.5px;
+        height: px-rem(1.5);
         background: linear-gradient(to right, rgba(255, 228, 235, 0) 1%, rgba(255, 228, 235, 0.2) 17%, rgba(255, 228, 235, 0.6) 29%, rgb(238, 225, 255) 52%, rgba(253, 222, 229, 0.6) 76%, rgba(253, 222, 229, 0.2) 85%, rgba(253, 222, 229, 0) 98%);
         border: 0;
         opacity: 1;
-        margin: 3rem 0;
+        margin: 3rem 0; // rem is fine for spacing
     }
 }
 
 @media (max-width: 768px) {
-
     .page-head {
-        padding: 95px 0 35px;
+        padding: px-rem(95) 0 px-rem(35);
     }
-    
-    .privacy-policy{
-        h4{
-            margin-bottom: 12px;
+
+    .privacy-policy {
+        h4 {
+            margin-bottom: px-rem(12);
         }
     }
 }
-@media (max-width: 576px) {
 
-    .privacy-policy{
-        padding: 50px 0;
-        p{
-            line-height: 24px;
+@media (max-width: 576px) {
+    .privacy-policy {
+        padding: px-rem(50) 0;
+
+        p {
+            line-height: px-rem(24);
             margin-bottom: 0;
         }
-        hr{
-            margin: 2.5rem 0;
+
+        hr {
+            margin: 2.5rem 0; // keep rem here
         }
     }
 }

@@ -1,3 +1,7 @@
+@function px-rem($px, $base: 16) {
+    @return ($px / $base) * 1rem;
+}
+
 .page-head {
     .text-path {
         .tp-svg {
@@ -12,14 +16,14 @@
 }
 
 .contact-us {
-    padding: 60px 0 80px;
+    padding: px-rem(60) 0 px-rem(80);
     position: relative;
 
     .contact-icon-plus {
         position: absolute;
         top: 60%;
-        left: 55px;
-        width: 50px;
+        left: px-rem(55);
+        width: px-rem(50);
         opacity: 0.7;
     }
 
@@ -27,7 +31,7 @@
         position: absolute;
         top: 30%;
         left: 35%;
-        width: 60px;
+        width: px-rem(60);
     }
 
     .heading {
@@ -37,8 +41,8 @@
 
         .tag {
             position: absolute;
-            left: -20px;
-            top: -52px;
+            left: px-rem(-20);
+            top: px-rem(-52);
             transform: rotate(-12deg);
         }
 
@@ -48,7 +52,7 @@
     }
 
     textarea.form-control {
-        height: 90px;
+        height: px-rem(90);
     }
 
     form {
@@ -72,31 +76,34 @@
     }
 
     .btn {
-        border-radius: 10px;
+        border-radius: px-rem(10);
         background: #FFDB00;
         display: flex;
-        padding: 18px;
+        padding: px-rem(18);
         justify-content: center;
         align-items: center;
-        gap: 10px;
+        gap: px-rem(10);
         align-self: stretch;
         width: 100%;
         color: #000;
-        font-size: 14px;
+        font-size: px-rem(14);
         font-weight: 500;
         line-height: normal;
         border: 0;
     }
 }
-@media(max-width: 768px){
-    .contact-us{
-        padding: 90px 0 50px;
-        .heading{
-            .tag{
-                left: -8px;
-                top: -40px;
+
+@media(max-width: 768px) {
+    .contact-us {
+        padding: px-rem(90) 0 px-rem(50);
+
+        .heading {
+            .tag {
+                left: px-rem(-8);
+                top: px-rem(-40);
             }
-            br{
+
+            br {
                 display: none;
             }
         }

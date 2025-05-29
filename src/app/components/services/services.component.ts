@@ -4,6 +4,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { PixiPlugin } from 'gsap/PixiPlugin';
 import { NgxMarqueeComponent } from '@omnedia/ngx-marquee';
+
 gsap.registerPlugin(PixiPlugin, ScrollTrigger);
 
 @Component({
@@ -12,12 +13,16 @@ gsap.registerPlugin(PixiPlugin, ScrollTrigger);
   templateUrl: './services.component.html',
   styleUrl: './services.component.scss'
 })
-
 export class ServicesComponent implements AfterViewInit {
   constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
 
   ngAfterViewInit(): void {
     if (!isPlatformBrowser(this.platformId)) return;
+
+    // Run animation only if viewport width is 768px or less
+    // if (window.innerWidth < 768) {
+    //   return;
+    // }
 
     const servicesCard = gsap.utils.toArray('.services-card') as HTMLElement[];
     const middles = gsap.utils.toArray('.middle') as HTMLElement[];
@@ -47,7 +52,7 @@ export class ServicesComponent implements AfterViewInit {
         onEnter: () => console.log('Enter scroll area')
       }
     })
-      .from('.team-background', { scale: 0.075, ease: 'power1.in' })
+      .from('.team-background', { scale: 0.7, ease: 'power1.in' })
       .to('.team-background', { scale: 1, ease: 'power1.in' })
       .set('.first', { transformOrigin: 'center top' })
       .to('.first', {
@@ -79,6 +84,6 @@ export class ServicesComponent implements AfterViewInit {
         scrub: .4
       },
       scale: 3.5
-    })
+    });
   }
 }

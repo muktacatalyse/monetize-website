@@ -1,16 +1,20 @@
+@function px-rem($px, $base: 16) {
+    @return ($px / $base) * 1rem;
+}
+
 p {
-    line-height: 28px;
+    line-height: px-rem(28);
 }
 
 .heading-tag {
-    font-size: 50px;
-    padding: 3px 10px;
+    font-size: px-rem(50);
+    padding: px-rem(3) px-rem(10);
     line-height: normal;
 }
 
 %gradientBorder {
-    padding: 20px;
-    border-radius: 20px;
+    padding: px-rem(20);
+    border-radius: px-rem(20);
     background: rgba(255, 255, 255, 0.10);
     box-shadow: 0px 24px 38px 0px rgba(22, 29, 36, 0.08);
     backdrop-filter: blur(60px);
@@ -20,8 +24,8 @@ p {
     &::before,
     &::after {
         content: '';
-        border-radius: 20px;
-        padding: 2px;
+        border-radius: px-rem(20);
+        padding: 2px; // this stays px because it's not wrapped in px-rem
         background: linear-gradient(130deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 20%);
 
         mask:
@@ -48,11 +52,11 @@ p {
 }
 
 .survey-wall-features {
-    padding: 100px 0 80px;
+    padding: px-rem(100) 0 px-rem(80);
 
     .tag {
         position: static;
-        transform: rotate(-7.5deg) translateY(-28px);
+        transform: rotate(-7.5deg) translateY(px-rem(-28));
     }
 
     .survey-wall-card {
@@ -60,11 +64,11 @@ p {
         background-size: 200%;
         background-repeat: repeat;
         background-position: center;
-        padding: 30px 40px;
-        border-radius: 30px;
+        padding: px-rem(30) px-rem(40);
+        border-radius: px-rem(30);
         display: flex;
         flex-direction: column;
-        gap: 15px;
+        gap: px-rem(15);
         align-items: center;
         color: #fff;
         transition: 0.3s linear;
@@ -88,10 +92,10 @@ p {
         .survey-wall-card-title {
             @extend %gradientBorder;
             color: #FFF;
-            font-size: 20px;
+            font-size: px-rem(20);
             font-weight: 600;
             margin-bottom: 0;
-            padding: 10px;
+            padding: px-rem(10);
             border-radius: 100px;
             background: rgba(255, 255, 255, 0.10);
             box-shadow: 0px 24px 38px 0px rgba(22, 29, 36, 0.08);
@@ -99,7 +103,7 @@ p {
             width: 100%;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: px-rem(10);
 
             &::before {
                 border-radius: 100px;
@@ -131,12 +135,10 @@ p {
             position: relative;
             justify-content: center;
 
-
             .survey-wall-card-badge {
                 @extend %gradientBorder;
                 font-size: 14px;
-                padding: 10px 12px;
-
+                padding: px-rem(10) px-rem(12);
                 font-weight: 600;
 
                 &:nth-child(1) {
@@ -162,48 +164,48 @@ p {
     background-repeat: no-repeat;
     background-position: center;
     height: 100vh;
-    padding: 50px;
+    padding: px-rem(50);
     overflow-x: hidden;
     position: relative;
 
     .steps-container {
         @extend %gradientBorder;
         height: 100%;
-        border-radius: 30px;
+        border-radius: px-rem(30);
         background: rgba(0, 0, 0, 0.10);
         backdrop-filter: blur(40px);
-        padding: 30px;
+        padding: px-rem(30);
         display: flex;
         align-items: flex-start;
         width: fit-content;
 
         &::before,
         &::after {
-            border-radius: 30px;
+            border-radius: px-rem(30);
         }
 
         .step-card-wrapper {
             display: flex;
             height: 100%;
-            flex: 0 0 630px;
+            flex: 0 0 px-rem(630);
 
             &.step-card-wrapper-3 {
-                flex: 0 0 500px;
+                flex: 0 0 px-rem(500);
             }
 
             .step-card {
                 display: flex;
                 align-items: flex-start;
-                gap: 30px;
+                gap: px-rem(30);
 
                 .step-card-images {
                     display: flex;
                     align-items: end;
-                    padding-top: 60px;
+                    padding-top: px-rem(60);
 
                     .step-card-mascot {
-                        width: 92px;
-                        margin-right: -30px;
+                        width: px-rem(92);
+                        margin-right: px-rem(-30);
                         z-index: 1;
                         position: relative;
                     }
@@ -219,28 +221,27 @@ p {
                     h3 {
                         display: flex;
                         align-items: center;
-                        font-size: 32px;
+                        font-size: px-rem(32);
                         font-weight: bold;
 
                         span {
-                            width: 52px;
-                            height: 52px;
-                            font-size: 18px;
+                            width: px-rem(52);
+                            height: px-rem(52);
+                            font-size: px-rem(18);
                             background-color: #AC98FF;
                             display: flex;
                             align-items: center;
-                            padding-left: 12px;
+                            padding-left: px-rem(12);
                             border-radius: 50%;
                             color: #461389;
-                            margin-right: -20px;
+                            margin-right: px-rem(-20);
                         }
                     }
 
                     p {
-                        font-size: 16px;
-
+                        font-size: px-rem(16);
                         margin-bottom: 0;
-                        max-width: 260px;
+                        max-width: px-rem(260);
                     }
                 }
 
@@ -251,7 +252,7 @@ p {
                         position: relative;
 
                         .step-card-mascot {
-                            margin-bottom: -85px;
+                            margin-bottom: px-rem(-85);
                             position: absolute;
                             bottom: 100%;
                             left: 0;
@@ -259,7 +260,7 @@ p {
                     }
 
                     .step-card-content {
-                        margin-top: -30px;
+                        margin-top: px-rem(-30);
                     }
                 }
 
@@ -273,12 +274,12 @@ p {
 
                     .step-card-content {
                         display: flex;
-                        gap: 15px;
+                        gap: px-rem(15);
                         align-items: flex-end;
 
                         .step-card-mascot {
-                            width: 110px;
-                            margin-left: -10px;
+                            width: px-rem(110);
+                            margin-left: px-rem(-10);
                         }
                     }
                 }
@@ -286,27 +287,26 @@ p {
         }
 
         .step-wave-img {
-            width: 400px;
-            margin-left: -270px;
+            width: px-rem(400);
+            margin-left: px-rem(-270);
         }
 
         .step-wave-img2 {
-            width: 400px;
-            margin-left: -270px;
+            width: px-rem(400);
+            margin-left: px-rem(-270);
         }
-
     }
 }
 
 .features {
-    padding: 80px 0;
+    padding: px-rem(80) 0;
 
     .feature-card {
         @extend %gradientBorder;
         display: flex;
-        height: 160px;
+        height: px-rem(160);
         align-items: center;
-        padding: 40px 0 40px 40px;
+        padding: px-rem(40) 0 px-rem(40) px-rem(40);
         box-shadow: none;
         background: #fff;
         transition: 0.3s linear;
@@ -323,33 +323,33 @@ p {
         .feature-card-header {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: px-rem(10);
 
             h3 {
                 margin-bottom: 0;
-                font-size: 30px;
+                font-size: px-rem(30);
                 font-weight: bold;
             }
 
             span {
-                font-size: 16px;
-                transform: translateY(2px);
-                margin-left: 10px;
+                font-size: px-rem(16);
+                transform: translateY(px-rem(2));
+                margin-left: px-rem(10);
             }
 
             img {
-                width: 28px;
+                width: px-rem(28);
             }
         }
 
         .feature-badge {
             display: inline-flex;
-            padding: 9px 12px;
+            padding: px-rem(9) px-rem(12);
             border-radius: 50px;
             background-color: #C6F15C;
             box-shadow: 3.5px 3.5px 0px 0px #220D4E;
             z-index: 1;
-            font-size: 12px;
+            font-size: px-rem(12);
             font-weight: 600;
             position: absolute;
             top: 50%;
@@ -358,330 +358,10 @@ p {
             opacity: 0;
             transition: 0.45s cubic-bezier(0, 0.34, 0.27, 2.5);
 
-            &.f-badge1 {
-                left: 235px;
-                background-color: #FFFB91;
-            }
-
-            &.f-badge2 {
-                left: 95px;
-                transform: translateY(-80%);
-            }
-        }
-
-        .feature-card-img {
-            width: 150px;
-            scale: 0.1;
-            transform: rotate(-180deg);
-            opacity: 0;
-            transition: 0.5s cubic-bezier(0, 0.34, 0.27, 1.7);
-            margin-right: -25px;
-        }
-
-        .feature-svg {
-            position: absolute;
-            top: -4px;
-            left: 70%;
-            transform: translateX(-50%);
-            width: 9px;
-            height: auto;
-            transition: 0.4s cubic-bezier(0, 0.34, 0.27, 1.7);
-        }
-
-        .feature-svg2 {
-            opacity: 0;
-        }
-
-        &:hover {
-            background: #FF91FA;
-
-            .feature-badge {
+            &.flying {
                 opacity: 1;
-
-                &.f-badge1 {
-                    transform: translateY(60%) rotate(-12deg);
-                }
-
-                &.f-badge2 {
-                    left: 95px;
-                    top: 35%;
-                    transform: translateY(-80%) rotate(12deg);
-                }
-            }
-
-            .feature-card-img {
-                scale: 1;
-                transform: rotate(20deg);
-                opacity: 1;
-            }
-
-            .feature-svg {
-                width: 20px;
-            }
-
-            .feature-svg2 {
-                opacity: 1;
+                left: px-rem(-50);
             }
         }
-
-        &.fc-2 {
-            &::before {
-                background: linear-gradient(90deg, #FFFB91 0%, #ff91fa0a 30%, rgba(255, 207, 207, 0) 50%);
-            }
-
-            .feature-badge {
-                &.f-badge1 {
-                    background-color: #FDB693;
-                }
-
-                &.f-badge2 {
-                    background-color: #91CDFF;
-                }
-            }
-
-            .feature-svg {
-                position: absolute;
-                top: -4px;
-                left: 7px;
-                transform: translate(0) rotate(-23deg);
-                width: 9px;
-                height: auto;
-                transition: 0.4s cubic-bezier(0, 0.34, 0.27, 1.7);
-                opacity: 0;
-            }
-
-            &:hover {
-                background: #FFFB91;
-
-                .feature-svg {
-                    width: 20px;
-                    opacity: 1;
-                }
-            }
-        }
-
-        &.fc-3 {
-            &::before {
-                background: linear-gradient(90deg, #91CDFF 0%, #ff91fa0a 30%, rgba(255, 207, 207, 0) 50%);
-            }
-
-            .feature-badge {
-                &.f-badge1 {
-                    background-color: #C6F15C;
-                }
-
-                &.f-badge2 {
-                    background-color: #ff97fa;
-                }
-            }
-
-            .feature-svg2 {
-                position: absolute;
-                bottom: -4px;
-                left: 7px;
-                transform: translate(0) rotate(7deg);
-                width: 20px;
-                height: auto;
-                transition: 0.4s cubic-bezier(0, 0.34, 0.27, 1.7);
-            }
-
-            &:hover {
-                background: #91CDFF;
-
-                .feature-svg2 {
-                    width: 60px;
-                }
-            }
-        }
-
-        &.fc-4 {
-
-            &::before {
-                background: linear-gradient(90deg, #C6F15C 0%, #ff91fa0a 30%, rgba(255, 207, 207, 0) 50%);
-            }
-
-            .feature-badge {
-                &.f-badge1 {
-                    background-color: #FFFB91;
-                }
-
-                &.f-badge2 {
-                    background-color: #8577F0;
-                }
-            }
-
-            .feature-svg {
-                position: absolute;
-                bottom: -7px;
-                top: auto;
-                left: 70%;
-                transform: translateX(-50%) scaleY(-1);
-                width: 9px;
-                height: auto;
-                transition: 0.4s cubic-bezier(0, 0.34, 0.27, 1.7);
-            }
-
-            .feature-svg2 {
-                position: absolute;
-                top: -2px;
-                left: -2px;
-                transform: rotate(80deg);
-                width: 20px;
-                height: auto;
-                transition: 0.4s cubic-bezier(0, 0.34, 0.27, 1.7);
-            }
-
-            &:hover {
-                background: #C6F15C;
-
-                .feature-svg {
-                    width: 20px;
-                }
-
-                .feature-svg2 {
-                    width: 60px;
-                }
-            }
-        }
-    }
-}
-
-.sw-features2 {
-    padding: 60px 0;
-
-    .swf-card {
-        padding: 20px 40px;
-        padding-right: 0;
-        border-radius: 20px;
-        background: linear-gradient(270deg, rgba(253, 223, 194, 0.79) 0%, rgba(251, 185, 119, 0.79) 100%);
-        display: flex;
-        gap: 10px;
-        justify-content: space-between;
-        align-items: center;
-        overflow: hidden;
-
-        h3 {
-            margin-bottom: 1rem;
-        }
-
-        p {
-
-            overflow: hidden;
-            text-overflow: ellipsis;
-            -webkit-box-orient: vertical;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            line-clamp: 3;
-            margin-bottom: 2.5rem;
-        }
-
-        a {
-            border-radius: 15px;
-            border: 1px solid #FFF;
-            background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.30) 0%, rgba(255, 255, 255, 0.30) 100%);
-            display: inline-flex;
-            padding: 15px;
-            justify-content: center;
-            align-items: center;
-            gap: 5px;
-            color: #fff;
-            text-decoration: none;
-            font-size: 15px;
-
-            svg {
-                width: 18px;
-            }
-        }
-
-        img {
-            width: 230px;
-            margin-right: -90px;
-            margin-left: 50px;
-            transition: 0.3s linear;
-        }
-
-        &:hover {
-            img {
-                scale: 1.5;
-            }
-        }
-    }
-
-    .swf-card.swf-card2 {
-        background: linear-gradient(90deg, #C2BBFF 0%, #E6E3FF 100%);
-    }
-
-    .swf-card.swf-card3 {
-        background: linear-gradient(90deg, rgba(118, 172, 255, 0.84) 0%, rgba(140, 181, 243, 0.45) 100%);
-    }
-
-    .swf-card.swf-card4 {
-        background: linear-gradient(90deg, #F7F97F 0%, #FEFFDE 100%);
-    }
-}
-
-.n002_2024b {
-
-    .container-lg {
-        background-image: url(../../../../public/assets/images/n002_2024b.jpg);
-        padding: 40px;
-        border-radius: 30px;
-        position: relative;
-        z-index: 0;
-        overflow: hidden;
-
-        &::before {
-            content: '';
-            background-color: rgba(0, 0, 0, 0.45);
-            height: 100%;
-            width: 100%;
-            position: absolute;
-            left: 0;
-            top: 0;
-            z-index: -1;
-        }
-    }
-
-    .panda-gif {
-        transform: scaleX(-1);
-        width: 85%;
-    }
-}
-
-.what-we-do {
-    padding: 130px 0 70px;
-
-    .heading {
-        position: relative;
-        display: inline-block;
-        margin: auto;
-        margin-bottom: 5rem;
-
-        .tag {
-            position: absolute;
-            top: -32px;
-            left: -130px;
-            transform: rotate(-14.45deg);
-        }
-    }
-
-    .wwd-card {
-        h3 {
-            color: #101010;
-            font-size: 25px;
-            margin-bottom: 20px;
-        }
-
-        p {
-            font-size: 16px;
-            margin-right: 40px;
-        }
-    }
-
-    .wwd-img {
-        position: absolute;
-        right: 0;
-        top: -80px;
-        width: 200px;
     }
 }

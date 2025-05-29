@@ -5,14 +5,18 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="hero-left-content position-relative">
-                        <div class="hero-typer">
-                            <ngx-typed-js
-                                [strings]="['#MONETIZATION', '#GDPR Compliant', '#100+ Countries']"
-                                [loop]="true" [typeSpeed]="70" [backSpeed]="40">
-                                <h5 class="typing"></h5>
-                            </ngx-typed-js>
+                        <div class="hero-heading-wrapper">
+                            <div class="hero-typer">
+                                <ngx-typed-js
+                                    [strings]="['#MONETIZATION', '#GDPR Compliant', '#100+ Countries']"
+                                    [loop]="true" [typeSpeed]="70"
+                                    [backSpeed]="40">
+                                    <h5 class="typing"></h5>
+                                </ngx-typed-js>
+                            </div>
+                            <h1 class="hero-heading">Maximize<br />App
+                                Revenue</h1>
                         </div>
-                        <h1 class="hero-heading">Maximize<br />App Revenue</h1>
                         <p class="hero-para">The future of monetization has
                             arrived,
                             and it's more powerful than ever. Unlock the true
@@ -29,7 +33,7 @@
                             class="hr-icon-iridescent" loading="lazy" alt>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 text-end">
                     <div class="hero-right-content position-relative">
                         <span class="hero-pill pill-orange pill-country">
                             100+ Countries
@@ -60,7 +64,7 @@
     </section>
     <!-- key metrics section -->
     <section class="key-metrics">
-        <div class="container-lg">
+        <div class="container">
             <div class="row mx-xl-5 px-xl-4">
                 <div class="col-md-4 col-sm-4">
                     <div class="kmr-card">
@@ -222,86 +226,7 @@
     <!-- services section -->
     <app-services />
     <!-- supported platforms -->
-    <section class="supported-platforms">
-        <div class="container-lg">
-            <div class="supported-platform-head">
-                <h1 class="heading">Supported Platform</h1>
-                <p class="common-text">Versatile monetization platform
-                    offering
-                    diverse network of
-                    <br class="d-sm-block d-none" />supported applications &
-                    languages</p>
-                <img src="assets/images/sp-shape.png" width="300" loading="lazy"
-                    alt>
-            </div>
-        </div>
-        <div class="container-lg sp-container position-relative">
-            <div class="splatform-card sp-android">
-                <div class="splatform-card-header">
-                    <button class="splatform-card-header-icon">
-                        <i class="bi bi-arrow-right"></i>
-                        <i class="bi bi-x"></i>
-                    </button>
-                    <h3>Android</h3>
-                    <span></span>
-                </div>
-                <div class="splatform-card-body">
-                    <span class="sp-badge">Chrome Custom
-                        Tabs</span>
-                    <img src="assets/images/android-device.svg"
-                        class="sp-device-img" loading="lazy" alt>
-                    <img
-                        src="assets/images/icons/icon-heart.svg"
-                        class="img-fluid sp-icon" loading="lazy" alt>
-                </div>
-            </div>
-            <div class="splatform-card sp-ios">
-                <div class="splatform-card-header">
-                    <button class="splatform-card-header-icon">
-                        <i class="bi bi-arrow-right"></i>
-                        <i class="bi bi-x"></i>
-                    </button>
-                    <h3>iOS</h3>
-                    <span></span>
-                </div>
-                <div class="splatform-card-body">
-                    <span class="sp-badge">SF SafarI View
-                        Controller</span>
-                    <img src="assets/images/ios-device.png"
-                        class="sp-device-img" loading="lazy" alt>
-                    <img
-                        src="assets/images/icons/icon-heart.svg"
-                        class="img-fluid sp-icon" loading="lazy" alt>
-                </div>
-            </div>
-            <div class="splatform-card sp-iframe">
-                <div class="splatform-card-header">
-                    <button class="splatform-card-header-icon">
-                        <i class="bi bi-arrow-right"></i>
-                        <i class="bi bi-x"></i>
-                    </button>
-                    <h3>Iframe</h3>
-                    <span></span>
-                </div>
-                <div class="splatform-card-body">
-                    <span class="sp-badge badge-web">Web</span>
-                    <span class="sp-badge badge-ios">iOS</span>
-                    <span
-                        class="sp-badge badge-android">Android</span>
-                    <img src="assets/images/iframe-device.png"
-                        class="sp-device-img" loading="lazy" alt>
-                    <img
-                        src="assets/images/icons/icon-heart.svg"
-                        class="img-fluid sp-icon" loading="lazy" alt>
-                </div>
-            </div>
-            <img src="assets/images/icons/icon-plus3.png" class="sp-icon-plus"
-                loading="lazy" alt>
-            <img src="assets/images/icons/icon-circle2.png"
-                class="sp-icon-circle" loading="lazy" alt>
-        </div>
-        <div class="supported-platform-ribbon" #lottieContainerSP></div>
-    </section>
+    <app-supported-platform />
     <!-- user case section -->
     <section class="use-cases">
         <div class="row mx-0">
@@ -414,7 +339,7 @@
                                         class="reasons__carousel-title">Industry
                                         leading eCPMS</h4>
                                     <p
-                                        class="reasons__carousel-desc px-lg-5">Get
+                                        class="reasons__carousel-desc">Get
                                         top-dollar eCPMs and payouts while
                                         letting users share their thoughts, do
                                         tasks or with sharing bandwidth
@@ -435,7 +360,7 @@
                                         class="reasons__carousel-title">Multiply
                                         Revenue Streams</h4>
                                     <p
-                                        class="reasons__carousel-desc px-lg-5">From
+                                        class="reasons__carousel-desc">From
                                         massive surveys to awesome game offers
                                         and a slick bandwidth SDK, you’ve got
                                         the power to pick what goes on your
@@ -455,7 +380,7 @@
                                         class="reasons__carousel-title">Gain
                                         Powerful Insights</h4>
                                     <p
-                                        class="reasons__carousel-desc px-lg-5">Track
+                                        class="reasons__carousel-desc">Track
                                         your earnings live, dive into user
                                         stats, and uncover who’s who—all for
                                         free. Insights have never been this
@@ -476,216 +401,7 @@
             loading="lazy" alt>
     </section>
     <!-- faq section -->
-    <section class="faq-section">
-        <div class="container-lg">
-            <div class="row justify-content-between">
-                <div class="col-12">
-                    <h1 class="heading">FAQ's</h1>
-                    <div class="faq-tags" #faqTags>
-                        <span class="faq-tag" data-speed>Smart Analytics</span>
-                        <span class="faq-tag" data-speed>Accessible Data</span>
-                        <span class="faq-tag" data-speed>Quick Research</span>
-                        <span class="faq-tag" data-speed>Faster Insights</span>
-                        <span class="faq-tag" data-speed>Accessible Data</span>
-                    </div>
-                </div>
-                <div class="col-md-5 pe-5">
-                    <div class="faq-left">
-                        <img src="assets/images/faq-img.png"
-                            class="faq-donkey-img d-sm-block d-none"
-                            loading="lazy" alt>
-                        <img src="assets/images/icons/icon-triangle.png"
-                            class="faq-icon-triangle" loading="lazy" alt>
-                        <img src="assets/images/icons/icon-ziggle2.png"
-                            class="faq-icon-ziggle" loading="lazy" alt>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="faq-right">
-                        <div class="accordion accordion-flush"
-                            id="accordionFlushExample">
-                            <div class="accordion-item">
-                                <button
-                                    class="accordion-button accordion-header collapsed"
-                                    type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#faq1"
-                                    aria-expanded="false"
-                                    aria-controls="faq1">
-                                    <span>What is an offerwall?</span>
-                                </button>
-                                <div id="faq1"
-                                    class="accordion-collapse collapse"
-                                    data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body">
-                                        <p>The duration of integration depends
-                                            on
-                                            the selected solution. Adding the
-                                            recommended script tag to your
-                                            website
-                                            may take around 10 minutes. If you
-                                            have
-                                            any questions or concerns during the
-                                            process, don't hesitate to reach out
-                                            to
-                                            our support team.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <button
-                                    class="accordion-button accordion-header collapsed"
-                                    type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#faq2"
-                                    aria-expanded="false"
-                                    aria-controls="faq2">
-                                    <span>How does the offerwall work?</span>
-                                </button>
-                                <div id="faq2"
-                                    class="accordion-collapse collapse"
-                                    data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body">
-                                        <p>Users can access the offerwall within
-                                            your platform. They can choose from
-                                            a
-                                            range of available offers, complete
-                                            the
-                                            required actions (e.g., completing a
-                                            survey or downloading an app), and
-                                            earn
-                                            virtual currency or other rewards
-                                            upon
-                                            successful completion.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <button
-                                    class="accordion-button accordion-header collapsed"
-                                    type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#faq3"
-                                    aria-expanded="false"
-                                    aria-controls="faq3">
-                                    <span>What types of offers are available on
-                                        the
-                                        offerwall?</span>
-                                </button>
-                                <div id="faq3"
-                                    class="accordion-collapse collapse"
-                                    data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body">
-                                        <p class="mb-2">The offerwall provides
-                                            various types of
-                                            offers, including:
-                                        </p>
-                                        <ul class="mb-0">
-                                            <li>Surveys and questionnaires </li>
-                                            <li>App installations and
-                                                interactions</li>
-                                            <li>Video views</li>
-                                            <li>Sign-ups for services or
-                                                subscriptions</li>
-                                            <li>Product trials and
-                                                purchases</li>
-                                            <li>Social media engagements</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <button
-                                    class="accordion-button accordion-header collapsed"
-                                    type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#faq4"
-                                    aria-expanded="false"
-                                    aria-controls="faq4">
-                                    <span>How do users earn rewards from the
-                                        offerwall?</span>
-                                </button>
-                                <div id="faq4"
-                                    class="accordion-collapse collapse"
-                                    data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body">
-                                        <p>Users can earn rewards by completing
-                                            the
-                                            tasks or actions specified in the
-                                            offers. After completing a task
-                                            successfully, they will receive
-                                            virtual
-                                            currency, points, or other rewards
-                                            as
-                                            outlined in the offer or survey
-                                            description.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <button
-                                    class="accordion-button accordion-header collapsed"
-                                    type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#faq5"
-                                    aria-expanded="false"
-                                    aria-controls="faq5">
-                                    <span>What is virtual currency, and how is
-                                        it
-                                        used?</span>
-                                </button>
-                                <div id="faq5"
-                                    class="accordion-collapse collapse"
-                                    data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body">
-                                        <p>Virtual currency is a form of digital
-                                            credit earned through completing
-                                            offers
-                                            on the offerwall. This currency can
-                                            be
-                                            redeemed for a variety of rewards
-                                            such
-                                            as in-game items, gift cards,
-                                            discounts,
-                                            or even exchanged for real money,
-                                            depending on the platform’s
-                                            offerings.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <button
-                                    class="accordion-button accordion-header collapsed"
-                                    type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#faq6"
-                                    aria-expanded="false"
-                                    aria-controls="faq6">
-                                    <span>Who can use the offerwall?</span>
-                                </button>
-                                <div id="faq6"
-                                    class="accordion-collapse collapse"
-                                    data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body">
-                                        <p>Anyone using the platform or
-                                            application
-                                            integrated with the offerwall can
-                                            participate. The offerwall is
-                                            designed
-                                            to engage active users who are
-                                            interested in earning rewards by
-                                            completing various offers and
-                                            tasks.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <img src="assets/images/icons/icon-circle3.png" alt
-                            class="faq-icon-circle">
-                        <img src="assets/images/icons/icon-3angle2.png" alt
-                            class="faq-icon-3angle">
-                        <img src="assets/images/icons/icon-pentagon.png" alt
-                            class="faq-icon-pentagon">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <app-faq />
     <!-- user insights -->
     <section class="user-insights">
         <div class="container-lg">
@@ -715,7 +431,7 @@
         <img src="assets/images/icons/icon-square3.png" class="ui-icon-square"
             loading="lazy" alt>
     </section>
-    <section class="your-earning">
+    <section class="your-earning d-none">
         <div class="container-lg">
             <div class="ye-left">
                 <h1 class="heading">Your Earnings</h1>
@@ -739,5 +455,4 @@
         <img src="assets/images/icons/icon-rupee.png" class="ye-icon-rupee"
             loading="lazy" alt>
     </section>
-    <div class="py-5"></div>
 </main>

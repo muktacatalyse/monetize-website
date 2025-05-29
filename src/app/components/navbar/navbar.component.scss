@@ -1,3 +1,7 @@
+@function px-rem($px, $base: 16) {
+    @return ($px / $base) * 1rem;
+}
+
 nav {
     position: fixed;
     top: 0;
@@ -7,17 +11,35 @@ nav {
     transition: 0.3s linear;
     font-family: var(--font-bricolage);
 
-    // &.scrolled {
-    //     .offcanvas-toggle {
-    //         mix-blend-mode: difference;
-    //         color: #fff;
-    //     }
-    // }
+    &.scrolled {
+        .navbar-brand {
+            .parent-company {
+                opacity: 0;
+            }
+        }
+    }
 
     .navbar-brand {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        font-size: px-rem(13);
+        align-items: flex-end;
+        max-width: px-rem(200);
+
         img {
-            width: 200px;
+            width: 100%;
             transition: 0.3s linear;
+        }
+
+        .parent-company {
+            margin-right: px-rem(3);
+            color: var(--color-text2);
+            letter-spacing: -0.5px;
+            font-weight: 600;
+            transition: 0.3s linear;
+            transform: translateY(-2px);
+            margin-bottom: -1rem;
         }
     }
 
@@ -28,11 +50,11 @@ nav {
 }
 
 .navbar-nav {
-    grid-row-gap: 20px;
+    grid-row-gap: px-rem(20);
     flex-direction: column;
     align-items: flex-start;
     display: flex;
-    padding-top: 20px;
+    padding-top: px-rem(20);
 
     .nav-item {
         .nav-link {
@@ -49,7 +71,7 @@ nav {
                 letter-spacing: -1px;
                 font-weight: 600;
                 text-transform: none;
-                font-size: 30px;
+                font-size: px-rem(30);
                 color: var(--color-text2);
                 transition: 0.4s ease-out;
 
@@ -58,14 +80,14 @@ nav {
                     position: absolute;
                     top: 0;
                     left: 0;
-                    transform: translateY(45px);
+                    transform: translateY(px-rem(45));
                     transition: 0.4s ease-out;
                 }
             }
 
             &:hover {
                 span {
-                    transform: translateY(-45px);
+                    transform: translateY(px-rem(-45));
                 }
             }
         }
@@ -75,14 +97,14 @@ nav {
 .offcanvas {
     background: #FDD94F;
     border: 0;
-    height: 40px;
-    width: 40px;
+    height: px-rem(40);
+    width: px-rem(40);
     visibility: hidden;
     opacity: 0;
     transform: none;
-    top: 20px;
-    right: 38px;
-    border-radius: 5px;
+    top: px-rem(20);
+    right: px-rem(38);
+    border-radius: px-rem(5);
     transition: 0.3s linear;
     padding: 1.2rem;
 
@@ -96,16 +118,16 @@ nav {
     .offcanvas-footer {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: px-rem(10);
         padding-top: 1.2rem;
         border-top: 1px solid rgba(34, 13, 78, 0.30);
 
         a {
             color: var(--color-text2);
-            font-size: 14px;
+            font-size: px-rem(14);
             text-decoration: none;
             display: flex;
-            gap: 5px;
+            gap: px-rem(5);
             align-items: center;
             font-weight: 500;
             overflow: hidden;
@@ -120,20 +142,20 @@ nav {
                     position: absolute;
                     top: 0;
                     left: 0;
-                    transform: translateY(20px);
+                    transform: translateY(px-rem(20));
                     transition: 0.3s ease-out;
                 }
             }
 
             svg {
-                width: 11px;
+                width: px-rem(11);
                 height: auto;
                 transition: 0.3s ease-out;
             }
 
             &:hover {
                 span {
-                    transform: translateY(-20px);
+                    transform: translateY(px-rem(-20));
                 }
 
                 svg {
@@ -144,28 +166,26 @@ nav {
     }
 
     .navbar-nav .nav-item .nav-link {
-        // zoom: 0.01;
         transition: 0.3s linear;
     }
 
     &.show {
-        height: 350px;
-        width: 270px;
+        height: px-rem(350);
+        width: px-rem(270);
         visibility: visible;
         opacity: 1;
-        top: 20px;
-        right: 38px;
+        top: px-rem(20);
+        right: px-rem(38);
         transition: 0.3s linear;
 
         .navbar-nav .nav-item .nav-link {
-            // zoom: 1;
             transition: 0.3s linear;
         }
     }
 }
 
 .offcanvas-toggle {
-    font-size: 16px;
+    font-size: px-rem(16);
     font-weight: 600;
     color: var(--color-text2);
     padding: 0;
@@ -192,8 +212,8 @@ nav {
         position: absolute;
         top: 0;
         left: 0;
-        border-radius: 5px;
-        transform: translateX(100px);
+        border-radius: px-rem(5);
+        transform: translateX(px-rem(100));
         transition: 0.3s linear;
     }
 
@@ -202,14 +222,14 @@ nav {
         position: absolute;
         top: 0;
         left: 0;
-        transform: translateY(25px);
+        transform: translateY(px-rem(25));
         opacity: 1 !important;
         transition: 0.3s linear;
     }
 
     &:hover {
         span {
-            transform: translateY(-25px);
+            transform: translateY(px-rem(-25));
         }
 
         &::before {
@@ -225,7 +245,7 @@ nav {
 @media(max-width: 992px) {
     .offcanvas {
         &.show {
-            right: 10px;
+            right: px-rem(10);
         }
     }
 }

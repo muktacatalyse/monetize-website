@@ -1,5 +1,9 @@
+@function px-rem($px, $base: 16) {
+    @return ($px / $base) * 1rem;
+}
+
 p {
-    line-height: 28px;
+    line-height: px-rem(28);
 }
 
 .page-head {
@@ -9,27 +13,26 @@ p {
 }
 
 .media-kit {
-    padding: 80px 0;
+    padding: px-rem(80) 0;
 
     .heading {
         color: #101010;
-        margin-bottom: 1.4rem;
+        margin-bottom: 1.4rem; // already in rem, no change needed
     }
 }
 
 @media (max-width: 768px) {
-
     .page-head {
-        padding: 95px 0 35px;
+        padding: px-rem(95) 0 px-rem(35);
     }
 }
 
 @media (max-width: 576px) {
     .media-kit {
-        padding: 50px 0;
+        padding: px-rem(50) 0;
 
         .heading {
-            margin-bottom: 1rem;
+            margin-bottom: 1rem; // already in rem, no change needed
         }
     }
 }

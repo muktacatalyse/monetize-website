@@ -1,7 +1,11 @@
+@function px-rem($px, $base: 16) {
+    @return ($px / $base) * 1rem;
+}
+
 .bg404 {
     height: 100vh;
     background-color: #F5F5F5;
-    padding: 40px;
+    padding: px-rem(40);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -16,47 +20,48 @@
 
         .error-display {
             font-weight: 400;
-            font-size: 72px;
-            letter-spacing: -1.5px;
-            margin-bottom: 0;
-            margin-bottom: -16px;
+            font-size: px-rem(72);
+            letter-spacing: px-rem(-1.5);
+            margin-bottom: px-rem(-16);
             color: var(--color-text2);
         }
 
         p {
-            font-size: 16px;
-            letter-spacing: -.5px;
+            font-size: px-rem(16);
+            letter-spacing: px-rem(-0.5);
             margin-bottom: 0;
-            line-height: 26px;
+            line-height: px-rem(26);
         }
 
         .giphy {
-            max-width: 200px;
-            border-radius: 16px;
+            max-width: px-rem(200);
+            border-radius: px-rem(16);
             transform: rotate(-12deg);
         }
 
         .error-btn {
-            font-size: 16px;
-            letter-spacing: -.5px;
+            font-size: px-rem(16);
+            letter-spacing: px-rem(-0.5);
             display: inline-block;
             color: #6a2be9;
-
         }
     }
 }
 
 @media(max-width: 768px) {
     .bg404 {
-        padding: 20px;
+        padding: px-rem(20);
+
         .error-content-box {
-            gap: 30px;
-            .error-display{
-                font-size: 50px;
+            gap: px-rem(30);
+
+            .error-display {
+                font-size: px-rem(50);
             }
         }
-        .giphy{
-            margin: 20px 0 0 20px;
+
+        .giphy {
+            margin: px-rem(20) 0 0 px-rem(20);
         }
     }
 }

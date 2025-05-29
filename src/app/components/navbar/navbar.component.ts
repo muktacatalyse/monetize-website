@@ -2,9 +2,10 @@ import { Component, AfterViewInit, NgZone } from '@angular/core';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { RouterLink } from '@angular/router';
+import { NgxCrypticTextComponent } from '@omnedia/ngx-cryptic-text';
 @Component({
   selector: 'app-navbar',
-  imports: [RouterLink],
+  imports: [RouterLink, NgxCrypticTextComponent],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
