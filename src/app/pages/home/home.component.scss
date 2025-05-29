@@ -865,7 +865,8 @@
 @media(max-width: px-rem(768)) {
     .hero-section {
         padding: px-rem(95) 0 px-rem(30);
-
+        background-image: url(../../../../public/assets/images/hero-bg-mobile.jpg);
+        background-size: cover;
         .hero-heading {
             font-size: px-rem(80);
         }
@@ -893,7 +894,11 @@
 @media(max-width: px-rem(576)) {
     .hero-section {
         padding: px-rem(110) 0 px-rem(55);
-
+        .hero-left-content{
+            width: 100%;
+            text-align: center;
+            display: block;
+        }
         .hr-icon-crown {
             left: px-rem(25);
             top: px-rem(-55);
