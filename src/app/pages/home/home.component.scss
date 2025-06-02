@@ -4,7 +4,7 @@
 
 // hero section start
 .hero-section {
-    background-image: url(../../../../public/assets/images/hero-bg.jpg);
+    background-image: url(../../../../public/assets/images/hero-bg3.jpg);
     background-size: cover;
     background-position: top;
     background-repeat: no-repeat;
@@ -288,6 +288,7 @@
             font-family: "Saira Stencil One";
             line-height: px-rem(44);
             display: flex;
+            color: var(--color-text2);
         }
 
         .kmr-title {
