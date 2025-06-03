@@ -179,6 +179,13 @@
                         top: px-rem(48);
                         left: px-rem(30);
                     }
+
+                    &.badge-iframe {
+                        background-color: #ff8cdb;
+                        transform: rotate(4.32deg);
+                        top: px-rem(55);
+                        left: px-rem(130);   
+                    }
                 }
 
                 .sp-device-img {

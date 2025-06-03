@@ -120,7 +120,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
             renderer: 'svg',
             loop: false,
             autoplay: false,
-            path: 'assets/json/marquee2.json',
+            path: 'assets/json/hero-marquee.json',
           });
 
           lottieAnim.addEventListener('DOMLoaded', () => {

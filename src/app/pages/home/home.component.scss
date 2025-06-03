@@ -1,4 +1,5 @@
 @use 'sass:math';
+
 // px to rem logic
 @function px-rem($px, $base: 16) {
     @return math.div($px, $base) * 1rem;
@@ -99,6 +100,28 @@
         left: px-rem(-25);
         top: px-rem(-70);
         animation: iconCrown 15s linear infinite;
+
+        @keyframes iconCrown {
+            0% {
+                transform: translate(0);
+            }
+
+            25% {
+                transform: translate(0, 15px);
+            }
+
+            50% {
+                transform: translate(0) rotate(-20deg);
+            }
+
+            75% {
+                transform: translate(0) rotate(-25deg);
+            }
+
+            100% {
+                transform: translate(0) rotate(0);
+            }
+        }
     }
 
     .hr-icon-trophy {
@@ -108,6 +131,28 @@
         z-index: -1;
         transform: translate(0) rotate(-35deg);
         animation: iconTrophy 15s linear infinite;
+
+        @keyframes iconTrophy {
+            0% {
+                transform: translate(0) rotate(-35deg);
+            }
+
+            25% {
+                transform: translate(0, 20px) rotate(-45deg);
+            }
+
+            50% {
+                transform: translate(0, 20px) rotate(-70deg);
+            }
+
+            75% {
+                transform: translate(0, 20px) rotate(-50deg);
+            }
+
+            100% {
+                transform: translate(0) rotate(-35deg);
+            }
+        }
     }
 
     .hr-icon-iridescent {
@@ -115,6 +160,28 @@
         right: px-rem(150);
         bottom: px-rem(-60);
         animation: iconIridescent 15s linear infinite;
+
+        @keyframes iconIridescent {
+            0% {
+                transform: translate(0);
+            }
+
+            25% {
+                transform: translate(0, 3px) rotate(20deg);
+            }
+
+            50% {
+                transform: translate(0) rotate(-55deg);
+            }
+
+            75% {
+                transform: translate(0) rotate(25deg);
+            }
+
+            100% {
+                transform: translate(0);
+            }
+        }
     }
 
     .hr-icon-star {
@@ -122,6 +189,28 @@
         left: px-rem(120);
         top: px-rem(-70);
         animation: iconStar 15s linear infinite;
+
+        @keyframes iconStar {
+            0% {
+                transform: translate(0);
+            }
+
+            25% {
+                transform: translate(0, 6px) rotate(33deg);
+            }
+
+            50% {
+                transform: translate(0, -20px) rotate(80deg);
+            }
+
+            75% {
+                transform: translate(0) rotate(-45deg);
+            }
+
+            100% {
+                transform: translate(0);
+            }
+        }
     }
 
     .hero-icon-cap {
@@ -130,6 +219,19 @@
         top: px-rem(-90);
         width: px-rem(50);
         animation: iconCap 2s linear infinite;
+        @keyframes iconCap {
+            0% {
+                transform: translate(0);
+            }
+
+            50% {
+                transform: translate(0, 5px);
+            }
+
+            100% {
+                transform: translate(0);
+            }
+        }
     }
 
     .hr-icon-rupee {
@@ -137,12 +239,34 @@
         right: 0;
         top: px-rem(-70);
         animation: iconRupee 15s linear infinite;
+        @keyframes iconRupee {
+            0% {
+                transform: translate(0);
+            }
+
+            25% {
+                transform: translate(0, 6px) rotate(20deg);
+            }
+
+            50% {
+                transform: translate(0, 10px) rotate(75deg);
+            }
+
+            75% {
+                transform: translate(0, -10px) rotate(-170deg);
+            }
+
+            0% {
+                transform: translate(0);
+            }
+        }
     }
 
     .hero-right-content {
         .hero-screens-img {
             z-index: 1;
             position: relative;
+            mix-blend-mode: multiply;
         }
 
         .hero-mascot {
@@ -179,6 +303,27 @@
                 z-index: 2;
                 transform: rotate(4.5deg);
                 animation: pillCountry 15s linear infinite;
+                @keyframes pillCountry {
+                    0% {
+                        transform: rotate(4.5deg);
+                    }
+
+                    25% {
+                        transform: translate(0, 15px) rotate(0);
+                    }
+
+                    50% {
+                        transform: translate(15px, -15px) rotate(4.5deg);
+                    }
+
+                    75% {
+                        transform: translate(0) rotate(0);
+                    }
+
+                    100% {
+                        transform: rotate(4.5deg);
+                    }
+                }
             }
 
             &.pill-gdpr {
@@ -187,6 +332,27 @@
                 right: 0;
                 z-index: 2;
                 animation: pillGDPR 15s linear infinite;
+                @keyframes pillGDPR {
+                    0% {
+                        transform: rotate(4.5deg);
+                    }
+
+                    25% {
+                        transform: translate(0, 15px) rotate(0);
+                    }
+
+                    50% {
+                        transform: translate(15px, -15px) rotate(4.5deg);
+                    }
+
+                    75% {
+                        transform: translate(0) rotate(0);
+                    }
+
+                    100% {
+                        transform: rotate(4.5deg);
+                    }
+                }
             }
 
             &.pill-publisher {
@@ -194,7 +360,29 @@
                 bottom: px-rem(100);
                 left: px-rem(200);
                 z-index: 2;
-                animation: pillGDPR 15s linear infinite;
+                animation: pillPub 15s linear infinite;
+
+                @keyframes pillPub {
+                    0% {
+                        transform: rotate(4.5deg);
+                    }
+
+                    25% {
+                        transform: translate(0, 15px) rotate(0);
+                    }
+
+                    50% {
+                        transform: translate(15px, -15px) rotate(4.5deg);
+                    }
+
+                    75% {
+                        transform: translate(0) rotate(0);
+                    }
+
+                    100% {
+                        transform: rotate(4.5deg);
+                    }
+                }
             }
         }
     }
@@ -870,6 +1058,7 @@
         padding: px-rem(95) 0 px-rem(30);
         background-image: url(../../../../public/assets/images/hero-bg-mobile.jpg);
         background-size: cover;
+
         .hero-heading {
             font-size: px-rem(80);
         }
@@ -896,15 +1085,17 @@
 
 @media(max-width: px-rem(576)) {
     .hero-section {
-        padding: px-rem(110) 0 px-rem(55);
-        .hero-left-content{
+        padding: px-rem(155) 0 px-rem(55);
+
+        .hero-left-content {
             width: 100%;
             text-align: center;
             display: block;
         }
+
         .hr-icon-crown {
-            left: px-rem(25);
-            top: px-rem(-55);
+            left: px-rem(140);
+            top: px-rem(-60);
         }
 
         .hr-icon-trophy {
@@ -926,11 +1117,12 @@
         }
 
         .hero-typer {
-            right: px-rem(10);
-            top: px-rem(-8);
-            padding: px-rem(8) px-rem(10);
+            right: auto;
+            left: px-rem(16);
+            top: px-rem(-25);
+            padding: px-rem(8) px-rem(8);
             border-radius: px-rem(8);
-            width: px-rem(155);
+            width: px-rem(150);
             display: none;
 
             h5 {
