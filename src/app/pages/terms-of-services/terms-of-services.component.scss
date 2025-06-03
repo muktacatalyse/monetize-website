@@ -1,12 +1,14 @@
+@use 'sass:math';
+// px to rem logic
 @function px-rem($px, $base: 16) {
-    @return ($px / $base) * 1rem;
+    @return math.div($px, $base) * 1rem;
 }
 
 p {
     line-height: px-rem(28);
 }
 
-.privacy-policy {
+.privacy-policy {  
     padding: px-rem(80) 0;
 
     h4 {

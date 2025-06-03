@@ -1,6 +1,6 @@
+@use 'sass:math';
 /* Import Bootstrap */
 @import url('../node_modules/bootstrap/dist/css/bootstrap.min.css');
-
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Manrope:wght@200..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap');
@@ -19,18 +19,17 @@
     /* Example accent background */
 }
 
-
-
+// px to rem logic
 @function px-rem($px, $base: 16) {
-    @return ($px / $base) * 1rem;
+    @return math.div($px, $base) * 1rem;
 }
-
 
 html {
     -moz-text-size-adjust: none;
     -webkit-text-size-adjust: none;
     text-size-adjust: none;
 }
+
 /* Reset and base styles */
 *,
 *::before,
@@ -273,7 +272,7 @@ h6 {
 }
 
 .sc-4 {
-    .om-marquee-item-wrapper {
+    .om-marquee-item-wrapper, .om-marquee-content {
         gap: 1rem !important;
     }
 }
@@ -285,6 +284,7 @@ h6 {
         width: 95%;
     }
 }
+
 @media (min-width: 1600px) {
 
     .container-lg {
