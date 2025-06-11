@@ -1,4 +1,5 @@
 @use 'sass:math';
+
 // px to rem logic
 @function px-rem($px, $base: 16) {
     @return math.div($px, $base) * 1rem;
@@ -10,18 +11,38 @@
     }
 }
 
-p {
-    line-height: px-rem(28);
+a {
+    color: #6a2be9 !important;
+    text-decoration: none;
+}
+
+p,
+li,
+td,
+th {
+    line-height: px-rem(26);
+    font-size: px-rem(15);
+    color: var(--color-text);
+}
+
+strong,
+th {
+    color: #3e3e3e;
 }
 
 .privacy-policy {
     padding: px-rem(80) 0;
 
     h4 {
-        font-size: px-rem(16);
+        font-size: px-rem(25);
         font-weight: bold;
+        margin-bottom: 1rem;
+        color: #220D4E;
+    }
 
-        margin-bottom: 0;
+    h5 {
+        font-size: px-rem(18);
+        font-weight: bold;
         color: #220D4E;
     }
 
@@ -51,13 +72,16 @@ p {
     .privacy-policy {
         padding: px-rem(50) 0;
 
-        p {
+        p,
+        li,
+        td,
+        th {
             line-height: px-rem(24);
-            margin-bottom: 0;
+            font-size: px-rem(14);
         }
 
         hr {
-            margin: 2.5rem 0; // keep rem here as it is relative spacing
+            margin: 2rem 0; // keep rem here as it is relative spacing
         }
     }
 }
