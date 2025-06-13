@@ -1,0 +1,15 @@
+<nav class="breadcrumb d-md-none" style="--bs-breadcrumb-divider: '>';">
+    <span class="breadcrumb-item">Getting Started</span>
+    <span class="breadcrumb-item active" aria-current="page">FAQ's</span>
+</nav>
+<div class="accordion accordion-flush" id="accordionFaq">
+    <div *ngFor="let faq of faqList; let i = index" class="accordion-item">
+        <button class="accordion-button accordion-header collapsed" type="button" data-bs-toggle="collapse"
+            [attr.data-bs-target]="'#faqAcr' + (i + 1)" [attr.aria-controls]="'faqAcr' + (i + 1)">
+            <span>{{ faq.question }}</span>
+        </button>
+        <div [id]="'faqAcr' + (i + 1)" class="accordion-collapse collapse" data-bs-parent="#accordionFaq">
+            <div class="accordion-body" [innerHTML]="faq.answerHtml"></div>
+        </div>
+    </div>
+</div>

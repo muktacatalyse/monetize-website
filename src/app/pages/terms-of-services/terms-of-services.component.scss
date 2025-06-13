@@ -1,21 +1,48 @@
 @use 'sass:math';
+
 // px to rem logic
 @function px-rem($px, $base: 16) {
     @return math.div($px, $base) * 1rem;
 }
 
-p {
-    line-height: px-rem(28);
+.page-head {
+    .last-update {
+        background-color: #FDB693;
+    }
 }
 
-.privacy-policy {  
+a {
+    color: #6a2be9 !important;
+    text-decoration: none;
+}
+
+p,
+li,
+td,
+th {
+    line-height: px-rem(26);
+    font-size: px-rem(15);
+    color: var(--color-text);
+}
+
+strong,
+th {
+    color: #3e3e3e;
+}
+
+.privacy-policy {
     padding: px-rem(80) 0;
 
     h4 {
-        font-size: px-rem(16);
+        font-size: px-rem(25);
         font-weight: bold;
+        margin-bottom: 1rem;
+        color: #220D4E;
+    }
 
-        margin-bottom: 0;
+    h5 {
+        font-size: px-rem(18);
+        font-weight: bold;
         color: #220D4E;
     }
 
@@ -25,7 +52,7 @@ p {
         background: linear-gradient(to right, rgba(255, 228, 235, 0) 1%, rgba(255, 228, 235, 0.2) 17%, rgba(255, 228, 235, 0.6) 29%, rgb(238, 225, 255) 52%, rgba(253, 222, 229, 0.6) 76%, rgba(253, 222, 229, 0.2) 85%, rgba(253, 222, 229, 0) 98%);
         border: 0;
         opacity: 1;
-        margin: 3rem 0; // rem is fine for spacing
+        margin: 3rem 0; // leave rem since this is relative spacing
     }
 }
 
@@ -45,13 +72,16 @@ p {
     .privacy-policy {
         padding: px-rem(50) 0;
 
-        p {
+        p,
+        li,
+        td,
+        th {
             line-height: px-rem(24);
-            margin-bottom: 0;
+            font-size: px-rem(14);
         }
 
         hr {
-            margin: 2.5rem 0; // keep rem here
+            margin: 2rem 0; // keep rem here as it is relative spacing
         }
     }
 }

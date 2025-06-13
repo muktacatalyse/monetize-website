@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import { DocsLayoutComponent } from './layouts/docs-layout/docs-layout.component';
 
 import { HomeComponent } from './pages/home/home.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
@@ -21,6 +22,10 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ComingSoonComponent } from './pages/coming-soon/coming-soon.component';
 import { CommonTemplateComponent } from './pages/common-template/common-template.component';
 import { DemoComponent } from './pages/demo/demo.component';
+import { IosSDKComponent } from './docs/ios-sdk/ios-sdk.component';
+import { AndroidSDKComponent } from './docs/android-sdk/android-sdk.component';
+import { OverviewComponent } from './docs/overview/overview.component';
+import { DocsFAQComponent } from './docs/docs-faq/docs-faq.component';
 
 export const routes: Routes = [
 
@@ -54,6 +59,18 @@ export const routes: Routes = [
             { path: 'verify-otp', component: VerifyOtpComponent },
         ]
     },
+    {
+        path: 'docs',
+        component: DocsLayoutComponent,
+        children: [
+            { path: '', redirectTo: 'overview', pathMatch: 'full' },
+            { path: 'overview', component: OverviewComponent },
+            { path: 'ios', component: IosSDKComponent },
+            { path: 'android', component: AndroidSDKComponent },
+            { path: 'faqs', component: DocsFAQComponent },
+        ]
+    },
+
     {
         path: '',
         component: AuthLayoutComponent,

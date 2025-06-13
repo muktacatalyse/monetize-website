@@ -1,0 +1,25 @@
+<div class="docs-head d-md-none">
+    <button class="btn docs-menu-btn p-0 border-0" type="button" [ngClass]="{ 'active': isCollapsed }" (click)="toggleSidebar()">
+        <svg class="ham-menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#2b3442" fill="none">
+            <path d="M4 8.5L20 8.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            <path d="M4 15.5L20 15.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+        </svg>
+        <svg class="cross-menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#2b3442" fill="none">
+            <path d="M18 6L6.00081 17.9992M17.9992 18L6 6.00085" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+    </button>
+</div>
+
+<div class="row g-0">
+    <div class="col-md-3 sidebar-col" [ngClass]="{ 'active': isCollapsed }">
+        <app-sidebar (click)="toggleSidebar()" />
+    </div>
+    <div class="col-1 pattern-box"></div>
+    <div class="col-md-7 sidebar-content">
+        <router-outlet></router-outlet>
+    </div>
+    <div class="col-1 pattern-box border-start"></div>
+</div>

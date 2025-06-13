@@ -13,294 +13,31 @@
             </div>
             <div class="col-md-5 pe-5">
                 <div class="faq-left">
-                    <img src="assets/images/faq-img.png"
-                        class="faq-donkey-img d-sm-block d-none"
-                        loading="lazy" alt>
-                    <img src="assets/images/icons/icon-triangle.png"
-                        class="faq-icon-triangle" loading="lazy" alt>
-                    <img src="assets/images/icons/icon-ziggle2.png"
-                        class="faq-icon-ziggle" loading="lazy" alt>
+                    <img src="assets/images/faq-img.png" class="faq-donkey-img d-sm-block d-none" loading="lazy" alt>
+                    <img src="assets/images/icons/icon-triangle.png" class="faq-icon-triangle" loading="lazy" alt>
+                    <img src="assets/images/icons/icon-ziggle2.png" class="faq-icon-ziggle" loading="lazy" alt>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="faq-right">
-                    <div class="accordion accordion-flush"
-                        id="accordionFaq">
-                        <div class="accordion-item">
-                            <button
-                                class="accordion-button accordion-header collapsed"
-                                type="button" data-bs-toggle="collapse"
-                                data-bs-target="#faq1"
-                                aria-expanded="false"
-                                aria-controls="faq1">
-                                <span>What is a survey-wall?</span>
+                    <div class="accordion accordion-flush" id="accordionFaq">
+                        <div *ngFor="let faq of faqList; let i = index" class="accordion-item">
+                            <button class="accordion-button accordion-header collapsed" type="button"
+                                data-bs-toggle="collapse" [attr.data-bs-target]="'#faqAcr' + (i + 1)"
+                                [attr.aria-controls]="'faqAcr' + (i + 1)">
+                                <span>{{ faq.question }}</span>
                             </button>
-                            <div id="faq1"
-                                class="accordion-collapse collapse"
+                            <div [id]="'faqAcr' + (i + 1)" class="accordion-collapse collapse"
                                 data-bs-parent="#accordionFaq">
-                                <div class="accordion-body">
-                                    <ul>
-                                        <li>A user-initiated ad unit that acts
-                                            like a mini store.</li>
-                                        <li>Lists of surveys + offers that users
-                                            can complete in exchange for in-app
-                                            reward by you or country specific
-                                            giftcards pay out (example Amazon,
-                                            PayPal, Google Pay etc.)</li>
-                                        <li>Users are rewarded and giftcards are
-                                            redeemed by email instantly, redeem
-                                            as low as 0.10$ cents.</li>
-                                        <li>Users can also engage in coupons,
-                                            free-html5 games & chat</li>
-                                        <li>Every offering can be customized by
-                                            you/ included+excluded in the
-                                            mini-store</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <button
-                                class="accordion-button accordion-header collapsed"
-                                type="button" data-bs-toggle="collapse"
-                                data-bs-target="#faq2"
-                                aria-expanded="false"
-                                aria-controls="faq2">
-                                <span>How it works</span>
-                            </button>
-                            <div id="faq2"
-                                class="accordion-collapse collapse"
-                                data-bs-parent="#accordionFaq">
-                                <div class="accordion-body">
-                                    <ul>
-                                        <li>User accesses the survey wall via
-                                            traffic drivers within the game (CTA
-                                            Button, banners, icons)</li>
-
-                                        <li>Choose from a list of surveys or
-                                            offers, each having a different
-                                            reward and length of completion</li>
-
-                                        <li>Fills the survey and also has access
-                                            free HTML games, coupons, chat and
-                                            also an included offerwall. This
-                                            ensures user is entertained and
-                                            engaged. </li>
-
-                                        <li>Collect the reward as popular
-                                            giftcard or IAP reward points as
-                                            set-up.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <button
-                                class="accordion-button accordion-header collapsed"
-                                type="button" data-bs-toggle="collapse"
-                                data-bs-target="#faq3"
-                                aria-expanded="false"
-                                aria-controls="faq3">
-                                <span>Why should apps or websites integrate
-                                    pocketsfull.ai survey-wall?</span>
-                            </button>
-                            <div id="faq3"
-                                class="accordion-collapse collapse"
-                                data-bs-parent="#accordionFaq">
-                                <div class="accordion-body">
-                                    <ul class="mb-0">
-                                        <li>Use the experience of rewarded ad
-                                            monetization and add another
-                                            user-initiated format.</li>
-                                        <li>Multi-wall is an alternative to
-                                            in-app putchases. Both players and
-                                            developers win :-
-                                            <ol type="1">
-                                                <li>Players get currency without
-                                                    spending money.</li>
-                                                <li>Developers get incremental
-                                                    revenue stream.</li>
-                                            </ol>
-                                        </li>
-                                        <li>In addition to in-app currency,
-                                            users engage in rewarded eco-system
-                                            loop, earns real-time
-                                            giftcards.</li>
-                                        <li>LTV increases for both playing and
-                                            non-playing users while keeping
-                                            other app metrics unhurt.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <button
-                                class="accordion-button accordion-header collapsed"
-                                type="button" data-bs-toggle="collapse"
-                                data-bs-target="#faq4"
-                                aria-expanded="false"
-                                aria-controls="faq4">
-                                <span>Effects of survey-wall on in-app purchases
-                                    (for games)</span>
-                            </button>
-                            <div id="faq4"
-                                class="accordion-collapse collapse"
-                                data-bs-parent="#accordionFaq">
-                                <div class="accordion-body">
-                                    <ol type="1" class="mb-3">
-                                        <li>Playing Players
-
-                                            <ul>
-                                                <li>Interact with survey more
-                                                    often</li>
-                                                <li>Complete harder and more
-                                                    rewarding surveys</li>
-                                                <li>Generate more revenue from
-                                                    survey (1.5-2x revenue per
-                                                    user compared to
-                                                    non-users)</li>
-                                                <li>Continue to make purchases
-                                                    after interacting with
-                                                    surveywall</li>
-                                            </ul>
-                                        </li>
-                                    </ol>
-                                    <p>Survey-walls don’t decrease the average
-                                        IAP and rewarded video LTV, they
-                                        increase overall LTV</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <button
-                                class="accordion-button accordion-header collapsed"
-                                type="button" data-bs-toggle="collapse"
-                                data-bs-target="#faq5"
-                                aria-expanded="false"
-                                aria-controls="faq5">
-                                <span>Survey-wall vs Offerwalls</span>
-                            </button>
-                            <div id="faq5"
-                                class="accordion-collapse collapse"
-                                data-bs-parent="#accordionFaq">
-                                <div class="accordion-body">
-                                    <p>Survey-wall</p>
-                                    <ul class="mb-3">
-                                        <li>Users access first-party surveys
-                                            with one click, working across the
-                                            globe in 100+ countries</li>
-                                        <li>One click integration</li>
-                                        <li>Android and IOS compliant</li>
-                                        <li>Redeem can be customized by
-                                            giftcards, in-app currency or both
-                                            altogether</li>
-                                    </ul>
-
-                                    <p>Traditional Offerwall</p>
-                                    <ul class="mb-3">
-                                        <li>Less to negotiable survey</li>
-                                        <li>Android compliant, many offers get
-                                            blocked by IOS or if not, they are
-                                            not making money since many offers
-                                            are removed on IOS</li>
-                                        <li>Android and IOS compliant</li>
-                                        <li>In-app currency only</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <button
-                                class="accordion-button accordion-header collapsed"
-                                type="button" data-bs-toggle="collapse"
-                                data-bs-target="#faq6"
-                                aria-expanded="false"
-                                aria-controls="faq6">
-                                <span>What are key considerations for
-                                    implementing survey wall?</span>
-                            </button>
-                            <div id="faq6"
-                                class="accordion-collapse collapse"
-                                data-bs-parent="#accordionFaq">
-                                <div class="accordion-body">
-                                    <ol type="1">
-                                        <li>Placement (Location)- Crucial for
-                                            engagement rate. Needs to be visible
-                                            (e.g., home screen button,
-                                            in-store). Adding a direct home
-                                            screen button drastically increased
-                                            user’s engagement (2.2x). Multiple
-                                            placements are possible within the
-                                            app</li>
-                                        <li>Traffic Drivers- Clear
-                                            Call-to-Action (e.g., “Free Gold”
-                                            for gold currency in game or Earn
-                                            giftcards)</li>
-                                        <li>Rewards- For in-app currency, set
-                                            the right exchange rate (often
-                                            similar to IAP value, e.g., $1=100
-                                            gems), or if using giftcard, we show
-                                            giftcard in local currency</li>
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <button
-                                class="accordion-button accordion-header collapsed"
-                                type="button" data-bs-toggle="collapse"
-                                data-bs-target="#faq7"
-                                aria-expanded="false"
-                                aria-controls="faq7">
-                                <span>Do you need a split currency (e.g.,
-                                    premium vs normal) to use the offer
-                                    wall?</span>
-                            </button>
-                            <div id="faq7"
-                                class="accordion-collapse collapse"
-                                data-bs-parent="#accordionFaq">
-                                <div class="accordion-body">
-                                    <p>Not necessarily. If you have one major
-                                        currency (like "Gold") that users can
-                                        purchase, you can use the offer wall to
-                                        reward that currency, maintaining a
-                                        similar conversion rate to IAP
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <button
-                                class="accordion-button accordion-header collapsed"
-                                type="button" data-bs-toggle="collapse"
-                                data-bs-target="#faq8"
-                                aria-expanded="false"
-                                aria-controls="faq8">
-                                <span>What is the effect of the multi wall on
-                                    retention?</span>
-                            </button>
-                            <div id="faq8"
-                                class="accordion-collapse collapse"
-                                data-bs-parent="#accordionFaq">
-                                <div class="accordion-body">
-                                    <p>Survey wall users tend to have a longer
-                                        average lifetime than non-offer wall
-                                        users. It makes logical sense that
-                                        players who invested time completing
-                                        tasks to get currency would return to
-                                        use it again and again!
-                                    </p>
-                                </div>
+                                <div class="accordion-body" [innerHTML]="faq.answerHtml"></div>
                             </div>
                         </div>
                     </div>
 
-                    <img src="assets/images/icons/icon-circle3.png" alt
-                        class="faq-icon-circle">
-                    <img src="assets/images/icons/icon-3angle2.png" alt
-                        class="faq-icon-3angle">
-                    <img src="assets/images/icons/icon-pentagon.png" alt
-                        class="faq-icon-pentagon">
+
+                    <img src="assets/images/icons/icon-circle3.png" alt class="faq-icon-circle">
+                    <img src="assets/images/icons/icon-3angle2.png" alt class="faq-icon-3angle">
+                    <img src="assets/images/icons/icon-pentagon.png" alt class="faq-icon-pentagon">
                 </div>
             </div>
         </div>

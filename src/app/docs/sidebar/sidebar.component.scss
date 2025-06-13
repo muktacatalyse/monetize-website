@@ -1,0 +1,59 @@
+.sidebar {
+    padding: 25px 30px;
+    width: 100%;
+    .sidebar-logo {
+        display: flex;
+        margin-bottom: 1.75rem;
+
+        img {
+            width: 190px;
+        }
+    }
+
+    h4 {
+        font-size: 16px;
+        letter-spacing: -0.3px;
+        color: #030712;
+    }
+
+    nav {
+        margin-bottom: 30px;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 13px;
+        border-left: 1px solid #e1e2e4;
+
+        li {
+            a {
+                font-size: 14px;
+                color: #4a5565;
+                text-decoration: none;
+                padding-left: 20px;
+                display: flex;
+                font-weight: 500;
+                // transition: 0.3s linear;
+
+                &.active {
+                    color: #6a2be9;
+                    font-weight: 600;
+                    border-left: 1px solid #6a2be9;
+                    margin-left: -1px;
+                }
+
+                &:hover {
+                    color: #030712;
+                }
+            }
+        }
+    }
+}
+@media(max-width: 768px){
+    .sidebar{
+        padding: 20px;
+    }
+}
