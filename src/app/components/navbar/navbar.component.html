@@ -27,7 +27,7 @@
                     <li class="nav-item">
                         <a
                             class="nav-link"
-                            [routerLink]="'/coming-soon'"
+                            [routerLink]="'/publishers'"
                             data-bs-dismiss="offcanvas">
                             <span data-text="Publishers">Publishers</span>
                         </a>
@@ -35,7 +35,7 @@
                     <li class="nav-item">
                         <a
                             class="nav-link"
-                            [routerLink]="'/coming-soon'"
+                            [routerLink]="'/advertise'"
                             data-bs-dismiss="offcanvas">
                             <span data-text="Advertise">Advertise</span>
                         </a>
@@ -43,9 +43,9 @@
                     <li class="nav-item">
                         <a
                             class="nav-link"
-                            [routerLink]="'/coming-soon'"
+                            [routerLink]="'/guide'"
                             data-bs-dismiss="offcanvas">
-                            <span data-text="Resources">Resources</span>
+                            <span data-text="Resources">Guide</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -83,4 +83,43 @@
         </div>
     </div>
 </nav>
-<!-- <div class="nav-space"></div> -->
+
+<!-- video popup -->
+<div [class.scrolled]="isScrolledToast" class="toast align-items-center position-fixed show"
+    role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-body border-0 p-0">
+        <img src="/assets/images/daily-reward.png" alt>
+        <button class="btn toast-play-btn" data-bs-toggle="modal"
+            data-bs-target="#videoPopup">
+            <i class="bi bi-play"></i>
+        </button>
+    </div>
+    <button type="button" class="btn-close"
+        data-bs-dismiss="toast" aria-label="Close"></button>
+</div>
+
+<div
+    class="modal fade"
+    id="videoPopup"
+    tabindex="-1"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
+    role="dialog"
+    aria-labelledby="modalTitleId"
+    aria-hidden="true">
+    <div
+        class="modal-dialog modal-dialog-centered modal-lg"
+        role="document">
+        <div class="modal-content border-0 bg-transparent">
+            <div class="modal-body">
+                <button type="button" class="btn-close"
+                    data-bs-dismiss="modal" aria-label="Close"></button>
+                <iframe class="w-100"
+                    src="https://www.youtube.com/embed/VQRLujxTm3c?si=xJ6jzro2GMsKz4qr"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</div>

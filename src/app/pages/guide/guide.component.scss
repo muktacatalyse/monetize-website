@@ -1,7 +1,8 @@
 @use 'sass:math';
+
 // px to rem logic
 @function px-rem($px, $base: 16) {
-    @return math.div($px, $base) * 1rem;
+  @return math.div($px, $base) * 1rem;
 }
 
 .page-head {

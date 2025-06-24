@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 @Component({
   selector: 'app-docs-faq',
   standalone: true,
@@ -8,6 +9,11 @@ import { CommonModule } from '@angular/common';
   styleUrl: './docs-faq.component.scss'
 })
 export class DocsFAQComponent {
+  constructor(private sanitizer: DomSanitizer) { }
+
+  sanitize(html: string): SafeHtml {
+    return this.sanitizer.bypassSecurityTrustHtml(html);
+  }
   faqList = [
     {
       question: 'What is a survey-wall?',

@@ -9,7 +9,7 @@
             <span>{{ faq.question }}</span>
         </button>
         <div [id]="'faqAcr' + (i + 1)" class="accordion-collapse collapse" data-bs-parent="#accordionFaq">
-            <div class="accordion-body" [innerHTML]="faq.answerHtml"></div>
+            <div class="accordion-body" [innerHTML]="sanitize(faq.answerHtml)"></div>
         </div>
     </div>
 </div>

@@ -10,9 +10,10 @@ import { NgxCrypticTextComponent } from '@omnedia/ngx-cryptic-text';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements AfterViewInit {
-  
+
   menuButtonText = 'Open Menu';
   isScrolled = false;
+  isScrolledToast = false;
   constructor(private ngZone: NgZone) { }
 
   ngAfterViewInit(): void {
@@ -30,6 +31,12 @@ export class NavbarComponent implements AfterViewInit {
     window.addEventListener('scroll', () => {
       this.ngZone.run(() => {
         this.isScrolled = window.scrollY > 50;
+      });
+    });
+
+    window.addEventListener('scroll', () => {
+      this.ngZone.run(() => {
+        this.isScrolledToast = window.scrollY > 150;
       });
     });
   }

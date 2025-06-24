@@ -26,6 +26,8 @@ import { IosSDKComponent } from './docs/ios-sdk/ios-sdk.component';
 import { AndroidSDKComponent } from './docs/android-sdk/android-sdk.component';
 import { OverviewComponent } from './docs/overview/overview.component';
 import { DocsFAQComponent } from './docs/docs-faq/docs-faq.component';
+import { CreativesComponent } from './pages/creatives/creatives.component';
+import { AdvertiseComponent } from './pages/advertise/advertise.component';
 
 export const routes: Routes = [
 
@@ -41,7 +43,9 @@ export const routes: Routes = [
             { path: 'media-kit', component: MediaKitComponent },
             { path: 'privacy-policy', component: PrivacyPolicyComponent },
             { path: 'terms-of-service', component: TermsOfServicesComponent },
-            { path: 'landing', component: CommonTemplateComponent },
+            { path: 'publishers', component: CommonTemplateComponent },
+            { path: 'advertise', component: AdvertiseComponent },
+            { path: 'creatives', component: CreativesComponent },
             { path: 'demo', component: DemoComponent },
         ]
     },
