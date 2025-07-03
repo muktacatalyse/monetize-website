@@ -1,125 +1,172 @@
 <nav class="navbar" [class.scrolled]="isScrolled">
-    <div class="container-lg">
-        <!-- Logo Section -->
-        <div class="navbar-brand">
-            <a [routerLink]="'/'">
-                <img src="assets/images/logo.png" loading="lazy" alt="Logo" />
-            </a>
-            <om-cryptic-text [animationSpeed]=500 class="parent-company"
-                [text]="'A Catalyse Research Company'"></om-cryptic-text>
-        </div>
-        <div class="off-toggle-wrapper">
-            <!-- Menu Toggle Button -->
-            <button class="offcanvas-toggle btn" type="button"
-                data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasNav"
-                aria-controls="offcanvasNav"
-                [attr.data-text]="menuButtonText">
-                <span>{{ menuButtonText }}</span>
-            </button>
-        </div>
-
-        <!-- Offcanvas Menu -->
-        <div class="offcanvas offcanvas-end" tabindex="-1"
-            id="offcanvasNav" aria-labelledby="offcanvasNavLabel">
-            <div class="offcanvas-body">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a
-                            class="nav-link"
-                            [routerLink]="'/publishers'"
-                            data-bs-dismiss="offcanvas">
-                            <span data-text="Publishers">Publishers</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a
-                            class="nav-link"
-                            [routerLink]="'/advertise'"
-                            data-bs-dismiss="offcanvas">
-                            <span data-text="Advertise">Advertise</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a
-                            class="nav-link"
-                            [routerLink]="'/guide'"
-                            data-bs-dismiss="offcanvas">
-                            <span data-text="Resources">Guide</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a
-                            class="nav-link"
-                            [routerLink]="'/contact-us'"
-                            data-bs-dismiss="offcanvas">
-                            <span data-text="Contact">Contact</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="offcanvas-footer">
-                <a [routerLink]="'/auth/login'" data-bs-dismiss="offcanvas">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                        height="14" viewBox="0 0 16 14" fill="none">
-                        <path
-                            d="M11.9882 12.5998L14.3475 3.79488L5.54262 1.43562M13.5722 4.24249L2.25301 10.7776"
-                            stroke="#220D4E" stroke-width="1.86207"
-                            stroke-miterlimit="10" stroke-linecap="square" />
-                    </svg>
-                    <span data-text="Login">Login</span>
-                </a>
-                <a [routerLink]="'/auth/sign-up'" data-bs-dismiss="offcanvas">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                        height="14" viewBox="0 0 16 14" fill="none">
-                        <path
-                            d="M11.9882 12.5998L14.3475 3.79488L5.54262 1.43562M13.5722 4.24249L2.25301 10.7776"
-                            stroke="#220D4E" stroke-width="1.86207"
-                            stroke-miterlimit="10" stroke-linecap="square" />
-                    </svg>
-                    <span data-text="Sign Up">Sign Up</span>
-                </a>
-            </div>
-        </div>
+  <div class="container-lg">
+    <!-- Logo Section -->
+    <div class="navbar-brand">
+      <a [routerLink]="'/'">
+        <img src="assets/images/logo.png" loading="lazy" alt="Logo" />
+      </a>
+      <om-cryptic-text
+        [animationSpeed]="500"
+        class="parent-company"
+        [text]="'A Catalyse Research Company'"
+      ></om-cryptic-text>
     </div>
+    <div class="off-toggle-wrapper">
+      <!-- Menu Toggle Button -->
+      <button
+        class="offcanvas-toggle btn"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasNav"
+        aria-controls="offcanvasNav"
+        [attr.data-text]="menuButtonText"
+      >
+        <span>{{ menuButtonText }}</span>
+      </button>
+    </div>
+
+    <!-- Offcanvas Menu -->
+    <div
+      class="offcanvas offcanvas-end"
+      tabindex="-1"
+      id="offcanvasNav"
+      aria-labelledby="offcanvasNavLabel"
+    >
+      <div class="offcanvas-body">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              [routerLink]="'/publishers'"
+              data-bs-dismiss="offcanvas"
+            >
+              <span data-text="Publishers">Publishers</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              [routerLink]="'/advertise'"
+              data-bs-dismiss="offcanvas"
+            >
+              <span data-text="Advertise">Advertise</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              [routerLink]="'/guide'"
+              data-bs-dismiss="offcanvas"
+            >
+              <span data-text="Resources">Guide</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              [routerLink]="'/contact-us'"
+              data-bs-dismiss="offcanvas"
+            >
+              <span data-text="Contact">Contact</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="offcanvas-footer">
+        <a [routerLink]="'/auth/login'" data-bs-dismiss="offcanvas">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="14"
+            viewBox="0 0 16 14"
+            fill="none"
+          >
+            <path
+              d="M11.9882 12.5998L14.3475 3.79488L5.54262 1.43562M13.5722 4.24249L2.25301 10.7776"
+              stroke="#220D4E"
+              stroke-width="1.86207"
+              stroke-miterlimit="10"
+              stroke-linecap="square"
+            />
+          </svg>
+          <span data-text="Login">Login</span>
+        </a>
+        <a [routerLink]="'/auth/sign-up'" data-bs-dismiss="offcanvas">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="14"
+            viewBox="0 0 16 14"
+            fill="none"
+          >
+            <path
+              d="M11.9882 12.5998L14.3475 3.79488L5.54262 1.43562M13.5722 4.24249L2.25301 10.7776"
+              stroke="#220D4E"
+              stroke-width="1.86207"
+              stroke-miterlimit="10"
+              stroke-linecap="square"
+            />
+          </svg>
+          <span data-text="Sign Up">Sign Up</span>
+        </a>
+      </div>
+    </div>
+  </div>
 </nav>
 
 <!-- video popup -->
-<div [class.scrolled]="isScrolledToast" class="toast align-items-center position-fixed show"
-    role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="toast-body border-0 p-0">
-        <img src="/assets/images/daily-reward.png" alt>
-        <button class="btn toast-play-btn" data-bs-toggle="modal"
-            data-bs-target="#videoPopup">
-            <i class="bi bi-play"></i>
-        </button>
-    </div>
-    <button type="button" class="btn-close"
-        data-bs-dismiss="toast" aria-label="Close"></button>
+<div
+  [class.scrolled]="isScrolledToast"
+  class="toast align-items-center position-fixed show"
+  role="alert"
+  aria-live="assertive"
+  aria-atomic="true"
+>
+  <div class="toast-body border-0 p-0">
+    <img src="/assets/images/daily-reward.png" alt />
+    <button
+      class="btn toast-play-btn"
+      data-bs-toggle="modal"
+      data-bs-target="#videoPopup"
+    >
+      <i class="bi bi-play"></i>
+    </button>
+  </div>
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="toast"
+    aria-label="Close"
+  ></button>
 </div>
 
 <div
-    class="modal fade"
-    id="videoPopup"
-    tabindex="-1"
-    data-bs-backdrop="static"
-    data-bs-keyboard="false"
-    role="dialog"
-    aria-labelledby="modalTitleId"
-    aria-hidden="true">
-    <div
-        class="modal-dialog modal-dialog-centered modal-lg"
-        role="document">
-        <div class="modal-content border-0 bg-transparent">
-            <div class="modal-body">
-                <button type="button" class="btn-close"
-                    data-bs-dismiss="modal" aria-label="Close"></button>
-                <iframe class="w-100"
-                    src="https://www.youtube.com/embed/VQRLujxTm3c?si=xJ6jzro2GMsKz4qr"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen></iframe>
-            </div>
-        </div>
+  class="modal fade"
+  id="videoPopup"
+  tabindex="-1"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  role="dialog"
+  aria-labelledby="modalTitleId"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content border-0 bg-transparent">
+      <div class="modal-body">
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+        <iframe
+          class="w-100"
+          src="https://www.youtube.com/embed/6E09weOZmwM?si=OoBcVlOf5Yhxa2GP"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </div>
     </div>
+  </div>
 </div>

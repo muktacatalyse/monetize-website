@@ -1,35 +1,526 @@
-<nav class="breadcrumb d-md-none" style="--bs-breadcrumb-divider: '>';">
-    <span class="breadcrumb-item">Getting Started</span>
-    <span class="breadcrumb-item active" aria-current="page">Overview</span>
+<nav class="breadcrumb d-md-none" style="--bs-breadcrumb-divider: '>'">
+  <span class="breadcrumb-item">Getting Started</span>
+  <span class="breadcrumb-item active" aria-current="page">Overview</span>
 </nav>
 
 <h1>Overview</h1>
 <div class="markdown-container">
+  <p>
+    Welcome to the integration guide! This document provides detailed
+    instructions on how to integrate our services into your mobile applications
+    and websites, ensuring a smooth and effective user experience.
+  </p>
+  <div>
+    <h2 id="app-dev">
+      1. Integration Guide for App Developers
+      <a
+        href="/docs/overview#app-dev"
+        (click)="scrollToSection($event, 'app-dev')"
+        >#</a
+      >
+    </h2>
     <p>
-        Get started with the inBrain SDK's to quickly monetize your mobile apps.
-        We support all popular platforms including
-        <a href="/docs/monetization-sdk/ios-sdk">iOS</a>,
-        <a href="/docs/monetization-sdk/android-sdk">Android</a>,
-        <a href="/docs/monetization-sdk/react-native-sdk">React Native</a> and
-        <a href="/docs/monetization-sdk/unity-sdk">Unity</a>.
+      For app developers, the integration process involves displaying a pre-made
+      banner from our creatives library within your application. Upon clicking
+      this banner, our URL should open seamlessly within a Chrome Custom Tab.
     </p>
-    <p>
-        Looking instead for documentation on the inBrain Monetization API integration?
-        Perfect for web applications and advanced integrations,
-        read more about our
-        <a href="/docs/supplier-api/getting-started/overview">Monetization API</a>.
-    </p>
-    <p><em>Please refer to the guide below if you need any additional help:</em></p>
-    <div id="setup">
-        <h2>Setup <a href="/docs/overview#setup" (click)="scrollToSection($event, 'setup')">#</a></h2>
+
+    <div class="ps-md-4 ps-1">
+      <div>
+        <h3>Step 1: Select and Place the Banner</h3>
+        <p>
+          First, select a suitable pre-made banner from our creatives library.
+          Integrate this banner into your app's UI at an appropriate location
+          where it will be visible and engaging to your users.
+        </p>
+      </div>
+      <div>
+        <h3>Step 2: Embed Our URL</h3>
+        <p>
+          Once the banner is placed, embed our provided URL (which will be
+          shared separately) as the click target for the banner. This URL will
+          be responsible for launching the Chrome Custom Tab.
+        </p>
+      </div>
+      <div>
+        <h3>Step 3: Implement Chrome Custom Tabs</h3>
+        <p>
+          To ensure a native-like browsing experience without leaving your app
+          entirely, you must open our URL in Chrome Custom Tabs. Here's how to
+          implement it for Android:
+        </p>
+        <div>
+          <h2>Prerequisites:</h2>
+          <p>
+            Add the <code>androidx.browser:browser</code> library to your
+            <code>build.gradle</code> (Module: app) file:
+          </p>
+        </div>
+        <div>
+          <h2 id="java">
+            Java Example:
+            <a
+              href="/docs/overview#java"
+              (click)="scrollToSection($event, 'java')"
+              >#</a
+            >
+          </h2>
+          <pre class="codeBlockLines">
+            <code class="language-js">
+import android.net.Uri;
+import androidx.browser.customtabs.CustomTabsIntent;
+import android.content.Context;
+
+public class CustomTabLauncher &#123;
+    public static void launchUrl(Context context, String url) &#123;
+        CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+
+        // Customize the Custom Tab appearance (optional)
+        // builder.setToolbarColor(ContextCompat.getColor(context, R.color.your_color));
+        // builder.setShowTitle(true);
+
+        CustomTabsIntent customTabsIntent = builder.build();
+        customTabsIntent.launchUrl(context, Uri.parse(url));
+    &#125;
+&#125;</code></pre>
+        </div>
+        <div>
+          <h2 id="kotlin">
+            Kotlin Example:
+            <a
+              href="/docs/overview#kotlin"
+              (click)="scrollToSection($event, 'kotlin')"
+              >#</a
+            >
+          </h2>
+          <pre class="codeBlockLines">
+            <code class="language-js">
+import android.net.Uri
+import androidx.browser.customtabs.CustomTabsIntent
+import android.content.Context
+
+object CustomTabLauncher &#123;
+    fun launchUrl(context: Context, url: String) &#123;
+        val builder = CustomTabsIntent.Builder()
+
+        // Customize the Custom Tab appearance (optional)
+        // builder.setToolbarColor(ContextCompat.getColor(context, R.color.your_color))
+        // builder.setShowTitle(true)
+
+        val customTabsIntent = builder.build()
+        customTabsIntent.launchUrl(context, Uri.parse(url))
+    &#125;
+&#125;</code></pre>
+        </div>
+        <div>
+          <h2 id="activity-fragment">
+            How to call it from your Activity/Fragment:
+            <a
+              href="/docs/overview#activity-fragment"
+              (click)="scrollToSection($event, 'activity-fragment')"
+              >#</a
+            >
+          </h2>
+          <pre class="codeBlockLines">
+            <code class="language-js">
+// In your Activity or Fragment where the banner click listener is handled
+
+String baseUrl = "YOUR_BASE_URL_HERE"; // Replace with the actual base URL
+String userId = "YOUR_UNIQUE_USER_ID"; // Get the user's Google Advertising ID
+String appId = "YOUR_APP_ID";          // Your provided application ID
+String subId1 = "YOUR_OPTIONAL_SUBID1"; // Any additional parameter (optional)
+
+// Construct the full URL with parameters
+String fullUrl = baseUrl +
+                 "&uid=" + userId +
+                 "&appId=" + appId +
+                 "&subid1=" + subId1; // Only append if subId1 is not empty/null
+
+CustomTabLauncher.launchUrl(this, fullUrl); // 'this' refers to the Context</code></pre>
+        </div>
+      </div>
+      <div>
+        <h3>Step 4: URL Parameters for App Developers</h3>
+        <p>
+          When constructing the URL to be opened in Chrome Custom Tabs, you must
+          include the following parameters:
+        </p>
+        <ul>
+          <li>
+            <p>
+              <code>&uid=&#123;unique_user_id&#125;</code> (Mandatory): This
+              parameter is crucial and must contain the user's Google
+              Advertising ID.
+            </p>
+            <ul>
+              <li>
+                <p>
+                  Example:
+                  <code>&uid=a1b2c3d4-e5f6-7890-1234-567890abcdef</code>
+                </p>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <p>
+              <code>&appId=&#123;your_app_id&#125;</code> (Mandatory): This is
+              your unique application ID, which has been provided to you.
+            </p>
+            <ul>
+              <li>
+                <p>
+                  Example:
+                  <code>&appId=12345</code>
+                </p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <p>
+              <code>&subid1=&#123;subid1&#125;</code> (Optional): Use this
+              parameter to pass any other custom information or tracking
+              parameters you might need.
+            </p>
+            <ul>
+              <li>
+                <p>
+                  Example:
+                  <code>&subid1=campaign_x</code>
+                </p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <p>
+          <strong>Example of a complete URL: </strong
+          ><a href=""
+            >https://your.service.com/path?param=value&uid=a1b2c3d4-e5f6-7890-1234-567890abcdef&appId=12345&subid1=in_app_promo</a
+          >
+        </p>
+      </div>
     </div>
-    <div class="py-5"></div>
-    <div class="py-5"></div>
-    <div class="py-5"></div>
-    <div class="py-5"></div>
-    <div class="py-5"></div>
-    <div class="py-5"></div>
-    <div class="py-5"></div>
-    <div class="py-5"></div>
-    <div class="py-5"></div>
+  </div>
+  <p>
+    This was for app publishers- keep the two options on the left menu one for
+    app owenrs, other for website publishers
+  </p>
+  <p>Now for website publishers:</p>
+  <div>
+    <h2 id="web-owner">
+      2. Integration Guide for Website Owners
+      <a
+        href="/docs/overview#web-owner"
+        (click)="scrollToSection($event, 'web-owner')"
+        >#</a
+      >
+    </h2>
+    <p>
+      For website owners, the integration involves placing a banner or icon on
+      your product that, when clicked, opens our service within an iframe.
+    </p>
+    <div class="ps-md-4 ps-1">
+      <div>
+        <h3>Step 1: Place the Banner/Icon</h3>
+        <p>
+          Place a banner or icon on your website's product pages or any other
+          relevant location. This element will act as the trigger for opening
+          our service.
+        </p>
+      </div>
+      <div>
+        <h3>Step 2: Implement the Iframe</h3>
+        <p>
+          Upon clicking the banner or icon, you need to open an iframe that
+          loads our URL. This allows our service to run within your website's
+          context without redirecting the user away.
+        </p>
+        <div>
+          <h2 id="html">
+            Basic HTML Example for the Iframe:
+            <a
+              href="/docs/overview#html"
+              (click)="scrollToSection($event, 'html')"
+              >#</a
+            >
+          </h2>
+          <pre class="codeBlockLines">
+            <code class="language-js">
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+    &lt;meta
+        name=&quot;viewport&quot;
+        content=&quot;width=device-width, initial-scale=1.0&quot;
+    /&gt;
+    &lt;title&gt;Our Service Integration&lt;/title&gt;
+    &lt;style&gt;
+        body &#123;
+        font-family: &quot;Inter&quot;, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        background-color: #f0f2f5;
+        &#125;
+        .container &#123;
+        background-color: #ffffff;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        max-width: 90%;
+        width: 600px;
+        &#125;
+        .banner-button &#123;
+        background-color: #4caf50; /* Green */
+        color: white;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1.2rem;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.2s ease,
+            box-shadow 0.2s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        margin-bottom: 20px;
+        &#125;
+        .banner-button:hover &#123;
+        background-color: #45a049;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        &#125;
+        .banner-button:active &#123;
+        transform: translateY(0);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        &#125;
+        #iframeContainer &#123;
+        display: none; /* Hidden by default */
+        width: 100%;
+        height: 600px; /* Adjust height as needed */
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        background-color: #f9f9f9;
+        margin-top: 20px;
+        &#125;
+        #ourServiceIframe &#123;
+        width: 100%;
+        height: 100%;
+        border: none;
+        &#125;
+        .close-button &#123;
+        background-color: #f44336; /* Red */
+        color: white;
+        padding: 8px 15px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        margin-top: 10px;
+        transition: background-color 0.3s ease;
+        &#125;
+        .close-button:hover &#123;
+        background-color: #da190b;
+        &#125;
+    &lt;/style&gt;
+    &lt;script src=&quot;https://cdn.tailwindcss.com&quot;&gt;&lt;/script&gt;
+    &lt;link
+        href=&quot;https://fonts.googleapis.com/css2?family=Inter:wght&#64;400;700&amp;display=swap&quot;
+        rel=&quot;stylesheet&quot;
+    /&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;h1 class=&quot;text-2xl font-bold text-gray-800 mb-4&quot;&gt;
+        Integrate Our Service
+        &lt;/h1&gt;
+        &lt;p class=&quot;text-gray-600 mb-6&quot;&gt;
+        Click the button below to access our interactive service.
+        &lt;/p&gt;
+        &lt;button class=&quot;banner-button&quot; onclick=&quot;openIframe()&quot;&gt;
+        Launch Our Service
+        &lt;/button&gt;
+        &lt;div id=&quot;iframeContainer&quot; class=&quot;rounded-lg shadow-md&quot;&gt;
+        &lt;iframe
+            id=&quot;ourServiceIframe&quot;
+            src=&quot;&quot;
+            allowfullscreen
+        &gt;&lt;/iframe&gt;
+        &lt;button class=&quot;close-button&quot; onclick=&quot;closeIframe()&quot;&gt;
+            Close Service
+        &lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+  // Function to get a URL parameter by name
+  function getUrlParameter(name) &#123;
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&amp;]' + name + '=([^&amp;#]*)');
+    var results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+  &#125;
+
+  function openIframe() &#123;
+    const iframeContainer = document.getElementById('iframeContainer');
+    const iframe = document.getElementById('ourServiceIframe');
+
+    // --- IMPORTANT: Construct your URL with dynamic parameters here ---
+    const baseUrl = &quot;https://your.service.com/iframe_path&quot;; // Replace with your actual iframe base URL
+    const appId = &quot;268&quot;; // Your mandatory application ID
+    const uniqueUserId = &quot;user123&quot;; // Replace with your actual user ID (e.g., from your backend)
+    const appSecureHash = &quot;YOUR_APP_SECURE_HASH&quot;; // Replace with your actual secure hash from your system
+    const username = &quot;JohnDoe&quot;; // Optional: Replace with user's username
+    const email = &quot;john.doe&#64;example.com&quot;; // Optional: Replace with user's email
+    const subId1 = &quot;website_promo&quot;; // Optional: Any additional info
+    const subId2 = &quot;homepage_click&quot;; // Optional: Any additional info
+
+    let fullUrl = `$&#123;baseUrl&#125;?appId=$&#123;appId&#125;`;
+
+    // Add secure hash if available (recommended)
+    if (appSecureHash &amp;&amp; uniqueUserId) &#123;
+      // Example: Combine values for hashing
+      const hashInput = `$&#123;uniqueUserId&#125;-$&#123;appSecureHash&#125;`;
+      // Simple base64 for demo (NOT secure MD5)
+      const secureHash = btoa(hashInput).substring(0, 32);
+      fullUrl += `&amp;hash=$&#123;secureHash&#125;`;
+    &#125;
+
+    if (username) &#123;
+      fullUrl += `&amp;username=$&#123;encodeURIComponent(username)&#125;`;
+    &#125;
+
+    if (email) &#123;
+      fullUrl += `&amp;email=$&#123;encodeURIComponent(email)&#125;`;
+    &#125;
+
+    if (subId1) &#123;
+      fullUrl += `&amp;subid1=$&#123;encodeURIComponent(subId1)&#125;`;
+    &#125;
+
+    if (subId2) &#123;
+      fullUrl += `&amp;subid2=$&#123;encodeURIComponent(subId2)&#125;`;
+    &#125;
+    // --- End URL construction ---
+
+    iframe.src = fullUrl;
+    iframeContainer.style.display = 'block'; // Show the iframe
+  &#125;
+
+  function closeIframe() &#123;
+    const iframeContainer = document.getElementById('iframeContainer');
+    const iframe = document.getElementById('ourServiceIframe');
+    iframe.src = &quot;&quot;; // Clear the iframe source
+    iframeContainer.style.display = 'none'; // Hide the iframe
+  &#125;
+&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </div>
+      </div>
+      <div>
+        <h3>Step 3: URL Parameters for Website Owners</h3>
+        <p>
+          When constructing the URL for the iframe, you need to pass the
+          following parameters:
+        </p>
+        <ul>
+          <li>
+            <p>
+              <code>&appId=268</code> <strong>(Mandatory):</strong> This is your
+              unique application ID, which has been provided to you.
+            </p>
+            <ul>
+              <li>
+                <p>Example: <code>&appId=268</code></p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <p>
+              <code>&hash=&#123;secure_hash&#125;</code
+              ><strong> (Optional, but Recommended): </strong>For higher
+              security, you can add this parameter. It should be a secure hash
+              generated using your unique user ID and your application's secure
+              hash.
+            </p>
+            <ul>
+              <li>
+                <p class="mb-1">
+                  Example (PHP pseudo-code for generation):
+                  <code
+                    >md5(&#123;unique_user_id&#125;-&#123;app_secure_hash&#125;)</code
+                  >
+                </p>
+              </li>
+              <li>
+                <p>
+                  Note: This hash should ideally be generated on your
+                  server-side to prevent exposure of your
+                  <code>app_secure_hash</code>.
+                </p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <p>
+              <code>&username=&#123;username&#125;</code>
+              <strong>(Optional):</strong> Use this parameter to send us the
+              username of your user.
+            </p>
+            <ul>
+              <li>
+                <p>Example: <code>&username=JohnDoe</code></p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <p>
+              <code>&email=&#123;email&#125;</code>
+              <strong>(Optional):</strong> We use the e-mail to match duplicate
+              users in our system.
+            </p>
+            <ul>
+              <li>
+                <p>Example: <code>&email=user&#64;example.com</code></p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <p>
+              <code>&subid2=&#123;subid2&#125;</code>
+              <strong>(Optional):</strong> You can add some more information
+              when you need it for tracking or categorization.
+            </p>
+            <ul>
+              <li>
+                <p>Example: <code>&subid2=product_page_view</code></p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <p>
+              <code>&subid1=&#123;subid1&#125;</code>
+              <strong>(Optional):</strong> Similar to <code>subid2</code>, this
+              allows you to add further custom information.
+            </p>
+            <ul>
+              <li>
+                <p>Example: <code>&subid1=premium_user</code></p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <p>
+          Example of a complete URL for iframe:
+          <a href=""
+            >https://your.service.com/iframe_path?appId=268&hash=your_generated_secure_hash&username=JohnDoe&email=user&#64;example.com&subid1=premium_user&subid2=product_page_view</a
+          >
+        </p>
+      </div>
+    </div>
+  </div>
 </div>

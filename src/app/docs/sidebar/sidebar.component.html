@@ -1,37 +1,79 @@
 <div class="sidebar">
-    <a [routerLink]="''" class="sidebar-logo">
-        <img src="./assets/images/logo.png" alt="">
-    </a>
-    <nav>
-        <h4>Getting Started</h4>
-        <ul>
-            <li>
-                <a [routerLink]="'overview'" routerLinkActive="active">Overview</a>
-            </li>
-            <li>
-                <a [routerLink]="'faqs'" routerLinkActive="active">Frequently Asked Questions</a>
-            </li>
-        </ul>
-    </nav>
-    <nav>
-        <h4>Documentation</h4>
-        <ul>
-            <li>
-                <a [routerLink]="'ios'" routerLinkActive="active">iOS SDK</a>
-            </li>
-            <li>
-                <a [routerLink]="'android'" routerLinkActive="active">Android SDK</a>
-            </li>
-            <li>
-                <a [routerLink]="'overview'">React Native SDK</a>
-            </li>
-            <li>
-                <a [routerLink]="'overview'">Flutter SDK</a>
-            </li>
-            <li>
-                <a [routerLink]="'overview'">Unity SDK</a>
-            </li>
-        </ul>
-    </nav>
-
+  <a [routerLink]="''" class="sidebar-logo">
+    <img src="./assets/images/logo.png" alt="" />
+  </a>
+  <nav>
+    <h4>Getting Started</h4>
+    <ul>
+      <li>
+        <a [routerLink]="'overview'" routerLinkActive="active">Overview</a>
+      </li>
+      <!-- <li>
+        <a [routerLink]="'faqs'" routerLinkActive="active"
+          >Frequently Asked Questions</a
+        >
+      </li> -->
+      <li>
+        <a
+          href="/docs/overview#activity-fragment"
+          (click)="scrollToSection($event, 'activity-fragment')"
+          >Usage in Activity/Fragment</a
+        >
+      </li>
+    </ul>
+  </nav>
+  <nav>
+    <h4>Documentation</h4>
+    <ul>
+      <li>
+        <a
+          href="/docs/overview#java"
+          (click)="scrollToSection($event, 'java')"
+          [class.active]="isActive('/docs/overview#java')"
+        >
+          Java SDK
+        </a>
+      </li>
+      <li>
+        <a
+          href="/docs/overview#kotlin"
+          (click)="scrollToSection($event, 'kotlin')"
+          [class.active]="isActive('/docs/overview#kotlin')"
+        >
+          Kotlin SDK
+        </a>
+      </li>
+      <li>
+        <a
+          href="/docs/overview#html"
+          (click)="scrollToSection($event, 'html')"
+          [class.active]="isActive('/docs/overview#html')"
+        >
+          HTML SDK
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <nav>
+    <h4>Integration</h4>
+    <ul>
+      <li>
+        <a
+          href="/docs/overview#app-dev"
+          (click)="scrollToSection($event, 'app-dev')"
+          [class.active]="isActive('/docs/overview#app-dev')"
+        >
+          App Developer
+        </a>
+      </li>
+      <li>
+        <a
+          href="/docs/overview#web-owner"
+          (click)="scrollToSection($event, 'web-owner')"
+          [class.active]="isActive('/docs/overview#web-owner')"
+          >Website Owner</a
+        >
+      </li>
+    </ul>
+  </nav>
 </div>

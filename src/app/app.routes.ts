@@ -21,13 +21,13 @@ import { VerifyOtpComponent } from './auth/verify-otp/verify-otp.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ComingSoonComponent } from './pages/coming-soon/coming-soon.component';
 import { CommonTemplateComponent } from './pages/common-template/common-template.component';
-import { DemoComponent } from './pages/demo/demo.component';
 import { IosSDKComponent } from './docs/ios-sdk/ios-sdk.component';
 import { AndroidSDKComponent } from './docs/android-sdk/android-sdk.component';
 import { OverviewComponent } from './docs/overview/overview.component';
 import { DocsFAQComponent } from './docs/docs-faq/docs-faq.component';
 import { CreativesComponent } from './pages/creatives/creatives.component';
 import { AdvertiseComponent } from './pages/advertise/advertise.component';
+import { DemoComponent } from './pages/demo/demo.component';
 
 export const routes: Routes = [
 
